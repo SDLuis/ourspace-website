@@ -8,7 +8,15 @@ module.exports = {
 
   ],
   theme: {
-    extend: {}
+    extend: {
+      screens: {
+        xsm: '680px',
+
+        '1xl': '1282px',
+
+        '2xl': '1536px'
+      }
+    }
   },
   plugins: []
 }
