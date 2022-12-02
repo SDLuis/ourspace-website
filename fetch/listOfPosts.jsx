@@ -24,7 +24,7 @@ export default async function Posts () {
           </div>
         </Link>
         <h2 className='my-3'>{post.description}</h2>
-        <img width={400} height={500} className='object-cover rounded-md w-auto h-auto' src={post.img} alt='post image' />
+        <img width={400} height={500} className='object-cover rounded-md w-[525px] h-[300px]' src={post.img} alt='post image' />
         <div className='pt-4'>
           {
               post.reactionModels ? post.reactionModels.length > 1 ? <p>{post.reactionModels.length} reactions</p> : <p>{post.reactionModels.length} reaction</p> : <p>Without reactions yet</p>
