@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
@@ -5,10 +6,14 @@ import Link from 'next/link'
 
 export default function RegisterComponent () {
   const [form, setForm] = useState([])
+  function handleChange (e) {
+    console.log(e.target.files)
+    setForm({ ...form, img: URL.createObjectURL(e.target.files[0]) })
+  }
 
   return (
-    <div className='Login grid h-[80vh] place-items-center'>
-      <main className='w-full h-[80vh] border border-solid border-gray-400 bg-black sm:rounded-lg sm:w-[451px] sm:h-[75vh] '>
+    <div className='Register grid h-[95vh] place-items-center'>
+      <main className='w-full h-[100vh] border border-solid border-gray-400 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
         <div className='formulario w-full flex flex-col gap-4 justify-center items-center h-full'>
           <center>
             <h2 className='font-medium text-2xl dark:text-gray-200'>Register</h2>
@@ -48,6 +53,10 @@ export default function RegisterComponent () {
                 }} id='password' className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-400 placeholder-gray-400 text-white' placeholder='•••••••••' required
               />
             </div>
+            <input className='w-[85%] sm:w-full' type='file' onChange={handleChange} />
+            {
+              form.img ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={form.img} alt='user img' /> </div> : null
+            }
           </div>
           <div className='w-full flex justify-center'>
             <button
