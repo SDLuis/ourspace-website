@@ -47,9 +47,6 @@ export default function UseRegister () {
         .catch((err) => {
           toast.error(`${err}`)
         })
-        .finally(() => {
-          setDisabled(false)
-        })
     } else {
       toast.error('Rellene todos los campos')
     }

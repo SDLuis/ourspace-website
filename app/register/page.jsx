@@ -11,7 +11,7 @@ export default function RegisterComponent () {
   useEffect(() => {
     setTimeout(() => {
       if (isRegister) {
-        // window.location.href = '/login'
+        window.location.href = '/login'
       }
     }, 500)
   }, [isRegister])
@@ -72,6 +72,7 @@ export default function RegisterComponent () {
                 e.preventDefault()
                 setDisabled(true)
                 Register()
+                setTimeout(() => { setDisabled(false) }, 2000)
               }}
             >
               Register

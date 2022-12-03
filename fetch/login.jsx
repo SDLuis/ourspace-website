@@ -31,9 +31,6 @@ export default function UseUser () {
         .catch(() => {
           toast.error('No se pudo Logear, intente mas tarde.')
         })
-        .finally(() => {
-          setDisabled(false)
-        })
     } else {
       toast.error('Rellene todos los campos')
     }

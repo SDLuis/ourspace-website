@@ -32,7 +32,7 @@ export default function LoginComponent () {
                 e.preventDefault()
                 setDisabled(true)
                 login()
-                setDisabled(false)
+                setTimeout(() => { setDisabled(false) }, 2000)
               }}
             >
               Log In
