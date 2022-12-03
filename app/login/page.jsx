@@ -32,6 +32,7 @@ export default function LoginComponent () {
                 e.preventDefault()
                 setDisabled(true)
                 login()
+                setDisabled(false)
               }}
             >
               Log In
