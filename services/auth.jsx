@@ -25,13 +25,7 @@ export const Login = async (user, password) => {
 
 export const register = async (body) => {
   return await axios
-    .post(`${API_URL}/auth/register`, {
-      First_Name: body.firstNameReg,
-      Last_Name: body.lastNameReg,
-      user: body.userReg,
-      password: body.passwordReg,
-      img: body.img
-    })
+    .post(`${API_URL}/auth/register`, body)
     .then((response) => {
       return response.data
     })

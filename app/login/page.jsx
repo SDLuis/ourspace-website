@@ -31,7 +31,7 @@ export default function LoginComponent () {
               onClick={(e) => {
                 e.preventDefault()
                 setDisabled(true)
-                login().then(() => setDisabled(false))
+                login()
               }}
             >
               Log In

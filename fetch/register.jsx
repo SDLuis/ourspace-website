@@ -10,7 +10,7 @@ export default function UseRegister () {
     lastNameReg: '',
     userReg: '',
     passwordReg: '',
-    img: ''
+    img: []
   })
 
   const checkFilledFields = useCallback(() => {
@@ -26,10 +26,16 @@ export default function UseRegister () {
     }
   }, [form.firstNameReg, form.lastNameReg, form.passwordReg, form.userReg])
 
-  const Register = useCallback(() => {
+  const Register = async () => {
     if (checkFilledFields()) {
+      const body = new FormData()
+      body.append('First_Name', form.firstNameReg)
+      body.append('Last_Name', form.lastNameReg)
+      body.append('user', form.userReg)
+      body.append('password', form.passwordReg)
+      body.append('image', form.img)
       setDisabled(true)
-      return register(form)
+      return await register(body)
         .then((response) => {
           if (response.message) {
             toast.error('Este user no esta disponible. Por favor intente con otro.')
@@ -41,10 +47,13 @@ export default function UseRegister () {
         .catch((err) => {
           toast.error(`${err}`)
         })
+        .finally(() => {
+          setDisabled(false)
+        })
     } else {
       toast.error('Rellene todos los campos')
     }
-  }, [checkFilledFields, form])
+  }
 
   return { Register, isRegister: Boolean(registed), form, setForm, disabled, setDisabled }
 }

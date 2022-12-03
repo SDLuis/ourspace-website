@@ -11,7 +11,7 @@ export default function RegisterComponent () {
   useEffect(() => {
     setTimeout(() => {
       if (isRegister) {
-        window.location.href = '/login'
+        // window.location.href = '/login'
       }
     }, 500)
   }, [isRegister])
@@ -60,7 +60,7 @@ export default function RegisterComponent () {
             </div>
             <input className='w-[85%] sm:w-full' type='file' onChange={(e) => setForm({ ...form, img: e.target.files[0] })} />
             {
-              form.img ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={URL.createObjectURL(form.img)} alt='user img' /> </div> : null
+              form.img.length !== 0 ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={URL.createObjectURL(form.img)} alt='user img' /> </div> : null
             }
           </div>
           <div className='w-full flex justify-center'>
@@ -71,7 +71,7 @@ export default function RegisterComponent () {
               onClick={(e) => {
                 e.preventDefault()
                 setDisabled(true)
-                Register().then(() => setDisabled(false))
+                Register()
               }}
             >
               Register
