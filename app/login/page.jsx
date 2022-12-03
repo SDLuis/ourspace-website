@@ -1,11 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import UseAuth from '../../fetch/login'
 
 export default function LoginComponent () {
-  const [userEmail, setUserEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { login, setUser, setPassword, disabled, setDisabled } = UseAuth()
 
   return (
     <div className='Login grid h-[80vh] sm:h-[75vh] place-items-center'>
@@ -16,8 +15,8 @@ export default function LoginComponent () {
           </center>
           <div className='w-9/12'>
             <div className='mb-4'>
-              <label htmlFor='email' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Email address</label>
-              <input type='email' id='email' onChange={(e) => { setUserEmail(e.target.value) }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-400 placeholder-gray-400 text-white' placeholder='Louis00' required />
+              <label htmlFor='user' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>User</label>
+              <input type='text' id='user' onChange={(e) => { setUser(e.target.value) }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-400 placeholder-gray-400 text-white' placeholder='Louis00' required />
             </div>
             <div className='mb-[13px]'>
               <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Password</label>
@@ -26,11 +25,13 @@ export default function LoginComponent () {
           </div>
           <div className='w-full flex justify-center'>
             <button
-              className='Button focus:outline-none  bg-blue-800 py-2 text-gray-300 px-10 rounded-r-full rounded-l-full w-9/12'
+              disabled={disabled}
+              className='Button focus:outline-none disabled:bg-blue-500 bg-blue-800 py-2 text-gray-300 px-10 rounded-r-full rounded-l-full w-9/12'
               type='submit'
               onClick={(e) => {
                 e.preventDefault()
-                console.log(userEmail, password)
+                setDisabled(true)
+                login().then(() => setDisabled(false))
               }}
             >
               Log In
