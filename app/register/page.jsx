@@ -1,15 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
+import UseRegister from '../../fetch/register'
 
 export default function RegisterComponent () {
-  const [form, setForm] = useState([])
-  function handleChange (e) {
-    console.log(e.target.files)
-    setForm({ ...form, img: URL.createObjectURL(e.target.files[0]) })
-  }
+  const { Register, isRegister, form, setForm, disabled, setDisabled } = UseRegister()
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isRegister) {
+        window.location.href = '/login'
+      }
+    }, 500)
+  }, [isRegister])
 
   return (
     <div className='Register grid h-[95vh] place-items-center'>
@@ -41,7 +46,7 @@ export default function RegisterComponent () {
               <label htmlFor='user' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>User</label>
               <input
                 type='text' id='user' onChange={(e) => {
-                  setForm({ ...form, useremailReg: e.target.value })
+                  setForm({ ...form, userReg: e.target.value })
                 }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-400 placeholder-gray-400 text-white' placeholder='LRincon' required
               />
             </div>
@@ -53,18 +58,20 @@ export default function RegisterComponent () {
                 }} id='password' className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-400 placeholder-gray-400 text-white' placeholder='•••••••••' required
               />
             </div>
-            <input className='w-[85%] sm:w-full' type='file' onChange={handleChange} />
+            <input className='w-[85%] sm:w-full' type='file' onChange={(e) => setForm({ ...form, img: e.target.files[0] })} />
             {
-              form.img ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={form.img} alt='user img' /> </div> : null
+              form.img ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={URL.createObjectURL(form.img)} alt='user img' /> </div> : null
             }
           </div>
           <div className='w-full flex justify-center'>
             <button
-              className='Button mb-1 focus:outline-none  bg-blue-800 py-2 text-gray-300 px-10 rounded-r-full rounded-l-full w-10/12'
+              disabled={disabled}
+              className='Button mb-1 focus:outline-none disabled:bg-blue-500 bg-blue-800 py-2 text-gray-300 px-10 rounded-r-full rounded-l-full w-10/12'
               type='submit'
               onClick={(e) => {
                 e.preventDefault()
-                console.log(form)
+                setDisabled(true)
+                Register().then(() => setDisabled(false))
               }}
             >
               Register
