@@ -1,16 +1,15 @@
-'use client'
-
 import './globals.css'
 import Navbar from '../components/navbar'
-import { Toaster } from 'react-hot-toast'
+import { AuthProvider } from '../context/auth'
 export default function MainLayout ({ children }) {
   return (
     <html lang='en'>
       <head />
       <body>
-        <Navbar />
-        <Toaster />
-        {children}
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   )
