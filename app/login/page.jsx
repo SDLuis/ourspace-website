@@ -1,13 +1,21 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import UseAuth from '../../fetch/login'
+import { Toaster } from 'react-hot-toast'
 
 export default function LoginComponent () {
-  const { login, setUser, setPassword, disabled, setDisabled } = UseAuth()
+  const { login, setUser, setPassword, disabled, setDisabled, isLogged } = UseAuth()
+  useEffect(() => {
+    if (isLogged) {
+      window.location.href = '/home'
+    }
+  }, [isLogged])
 
   return (
     <div className='Login grid h-[80vh] sm:h-[75vh] place-items-center'>
+      <Toaster />
       <main className='w-full h-[80vh] sm:border border-solid border-gray-400 sm:rounded-lg sm:w-[451px] sm:h-[70vh] '>
         <div className='formulario flex flex-col justify-center items-center gap-4 h-full'>
           <center>

@@ -4,6 +4,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import UseRegister from '../../fetch/register'
+import { Toaster } from 'react-hot-toast'
 
 export default function RegisterComponent () {
   const { Register, isRegister, form, setForm, disabled, setDisabled } = UseRegister()
@@ -18,6 +19,7 @@ export default function RegisterComponent () {
 
   return (
     <div className='Register grid h-[95vh] place-items-center'>
+      <Toaster />
       <main className='w-full h-[100vh] border border-solid border-gray-400 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
         <div className='formulario w-full flex flex-col gap-4 justify-center items-center h-full'>
           <center>
