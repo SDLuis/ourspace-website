@@ -1,10 +1,12 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useContext } from 'react'
 import Cookies from 'js-cookie'
 import { Login } from '../services/auth'
 import { toast } from 'react-hot-toast'
+import { authContext } from '../context/auth'
+import { jwtVerify } from 'jose'
 
 export default function UseUser () {
-  const [jwt, setJWT] = useState('')
+  const { jwt, setJWT } = useContext(authContext)
   const [password, setPassword] = useState('')
   const [user, setUser] = useState('')
   const [disabled, setDisabled] = useState(false)
@@ -46,6 +48,14 @@ export default function UseUser () {
     window.location.href = '/'
   }, [setJWT])
 
+  const userLogged = async () => {
+    if (jwt) {
+      const secret = new TextEncoder().encode('ourspace')
+      const { payload } = await jwtVerify(jwt, secret)
+      return payload
+    }
+  }
+
   return {
     isLogged: Boolean(jwt),
     login,
@@ -56,6 +66,7 @@ export default function UseUser () {
     setPassword,
     checkFilledFields,
     disabled,
-    setDisabled
+    setDisabled,
+    userLogged
   }
 }
