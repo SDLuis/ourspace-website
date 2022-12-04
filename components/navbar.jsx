@@ -30,7 +30,7 @@ export default function Navbar () {
         {user
           ? <div>
             <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={user.img} alt='user' />
-            <div id='dropdownInformation' className={` ${userMenu ? 'fixed z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}>
+            <div id='dropdownInformation' className={` ${userMenu ? 'absolute z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}>
               <div className='py-3 px-4 text-sm text-gray-900 dark:text-white'>
                 <div>{user.name}</div>
                 <div className='font-medium truncate'>User: {user.user}</div>
