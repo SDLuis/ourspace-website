@@ -23,14 +23,12 @@ export default async function Post ({ params, children }) {
             <Link className='absolute top-7 left-6 sm:left-10' href='/home'><Back /></Link>
           </div>
           <div className='py-5 flex flex-col items-center'>
-            <div className='flex flex-col px-5 pt-5 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-900'>
-              <div className='flex gap-3'>
+            <div className='flex flex-col px-5 pt-3 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-900'>
+              <div className='flex gap-3 items-center'>
                 <Link href={`/user/${post.userModel.user}`}>
-                  <div className='rounded-full w-14 h-14 sm:w-16 sm:h-16 bg-gray-50 grid place-items-center'>
-                    <img className='rounded-full w-[88%] h-[88%]' src={post.userModel.img} alt='user' />
-                  </div>
+                  <img className='rounded-full w-12 h-12 sm:w-14 sm:h-14' src={post.userModel.img} alt='user' />
                 </Link>
-                <div className='py-1 sm:py-2 h-14 sm:h-16'>
+                <div className='py-1 h-14 sm:h-16'>
                   <Link href={`/user/${post.userModel.user}`}>
                     <p className='font-medium text-lg'>{post.userModel.First_Name + ' ' + post.userModel.Last_Name}</p>
                     <p className='text-sm'>{post.Location}</p>
