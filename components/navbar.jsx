@@ -22,14 +22,14 @@ export default function Navbar () {
       <div className='flex items-center'>
         <p className='text-4xl py-2 font-semibold text-gray-200'><Link href='/home'>Ourspace</Link></p>
       </div>
-      <div className='flex items-center gap-6'>
-        <div className='hidden sm:flex items-center gap-6'>
-          <Home />
-          <Message />
-          <Add />
-        </div>
-        {user
-          ? <div>
+      {user
+        ? <div className='flex items-center gap-6'>
+          <div className='hidden sm:flex items-center gap-6'>
+            <Home />
+            <Message />
+            <Add />
+          </div>
+          <div>
             <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={user.img} alt='user' />
             <div id='dropdownInformation' className={` ${userMenu ? 'absolute z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}>
               <div className='py-3 px-4 text-sm text-gray-900 dark:text-white'>
@@ -52,8 +52,8 @@ export default function Navbar () {
               </div>
             </div>
           </div>
-          : null}
-      </div>
+        </div>
+        : null}
       <Toaster />
     </div>
   )
