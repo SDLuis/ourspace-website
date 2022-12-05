@@ -10,7 +10,7 @@ export default function Home () {
         <div className='hidden xsm:flex justify-end w-[88px] lg:w-[270px] py-5'>
           <Utilities />
         </div>
-        <div className='w-full sm:w-full py-5 flex flex-col items-center border-b border-x border-solid sm:border-gray-500'>
+        <div className='w-full min-h-screen sm:w-full pt-5 flex flex-col items-center border-x border-solid sm:border-gray-900'>
           <ListOfPosts />
         </div>
         <div className='hidden lg:flex justify-center w-[20vw] py-5'>
