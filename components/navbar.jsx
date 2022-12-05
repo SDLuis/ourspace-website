@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { Home, Message, Add } from './icons'
 import UseUser from '../fetch/login'
 import { useEffect, useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 export default function Navbar () {
   const [user, setUser] = useState('')
@@ -18,6 +19,7 @@ export default function Navbar () {
 
   return (
     <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-500 '>
+      <Toaster />
       <div className='flex items-center'>
         <p className='text-4xl font-semibold text-white'><Link href='/home'>Ourspace</Link></p>
       </div>
