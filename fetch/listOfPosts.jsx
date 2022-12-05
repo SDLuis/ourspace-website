@@ -15,7 +15,7 @@ export default async function Posts () {
 
   return (
     posts.map((post) => (
-      <div className='flex flex-col p-5 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-500' key={post.Post_ID}>
+      <div className='flex flex-col px-5 py-3 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-500' key={post.Post_ID}>
         <div className='flex gap-3'>
           <Link href={`/user/${post.userModel.user}`}>
             <div className='rounded-full w-14 h-14 sm:w-16 sm:h-16 bg-gray-50 grid place-items-center'>

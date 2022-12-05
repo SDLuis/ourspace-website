@@ -13,9 +13,9 @@ export default async function Post ({ params }) {
   const comments = await (await fetchComments()).data
 
   return (
-    <div className=' border-solid border-r border-t border-l w-full border-gray-500'>{
+    <div className=' border-solid border-t w-full border-gray-900'>{
       comments.map((comment) => (
-        <div className='flex flex-col p-5 w-full mb-5 border-solid border-b border-gray-500 ' key={comment.Comment_ID}>
+        <div className='flex flex-col p-3 w-full border-solid border-b border-gray-900 ' key={comment.Comment_ID}>
           <Link href={`/user/${comment.userModel.user}`}>
             <div className='flex gap-3'>
               <div className='rounded-full w-12 h-12 bg-gray-50 grid place-items-center'>

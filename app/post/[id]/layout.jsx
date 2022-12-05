@@ -18,10 +18,9 @@ export default async function Post ({ params, children }) {
   return (
     <div className='sm:px-8 px-0'>
       <main className='w-full flex justify-center text-white'>
-        <div className='w-full sm:w-[598px] md:w-[470px] lg:w-[598px] border-x border-solid sm:border-gray-500'>
-          <div className='flex items-center h-8 gap-10 px-5 pt-4'>
-            <Link className='' href='/home'><Back /></Link>
-            <p className='text-2xl font-semibold'>Post</p>
+        <div className='w-full flex relative justify-center sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x border-solid sm:border-gray-500'>
+          <div className='py-5'>
+            <Link className='absolute top-7 left-6 sm:left-10' href='/home'><Back /></Link>
           </div>
           <div className='py-5 flex flex-col items-center'>
             <div className='flex flex-col p-5 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-500'>
