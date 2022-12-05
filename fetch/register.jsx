@@ -26,7 +26,9 @@ export default function UseRegister () {
     }
   }, [form.firstNameReg, form.lastNameReg, form.passwordReg, form.userReg])
 
-  const Register = async () => {
+  const Register = async (event) => {
+    event.preventDefault()
+    setTimeout(() => { setDisabled(false) }, 2000)
     if (checkFilledFields()) {
       const body = new FormData()
       body.append('First_Name', form.firstNameReg)

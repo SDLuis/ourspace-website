@@ -18,7 +18,10 @@ export default function UseUser () {
     }
   }, [password, user])
 
-  const login = () => {
+  const login = (event) => {
+    event.preventDefault()
+    setDisabled(true)
+    setTimeout(() => { setDisabled(false) }, 2000)
     if (checkFilledFields()) {
       return Login(user, password)
         .then((res) => {
@@ -41,7 +44,7 @@ export default function UseUser () {
   const logout = useCallback(() => {
     Cookies.remove('ourspace')
     setJWT(null)
-    toast('Good bye', {
+    toast('Nos vemos pronto', {
       icon: '👋',
       duration: 1000
     })
