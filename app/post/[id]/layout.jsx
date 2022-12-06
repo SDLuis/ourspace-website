@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Comment from '../../../components/comment'
 import { LikeButtonComponent } from '../../../components/like'
 import { Back } from '../../../components/icons'
+import UserOnPost from '../../../components/useronpost'
 
 export default async function Post ({ params, children }) {
   const { id } = params
@@ -24,17 +25,7 @@ export default async function Post ({ params, children }) {
           </div>
           <div className='py-5 flex flex-col items-center'>
             <div className='flex flex-col px-5 pt-3 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-900'>
-              <div className='flex gap-3 items-center'>
-                <Link href={`/user/${post.userModel.user}`}>
-                  <img className='rounded-full w-12 h-12 sm:w-14 sm:h-14' src={post.userModel.img} alt='user' />
-                </Link>
-                <div className='py-1 h-14 sm:h-16'>
-                  <Link href={`/user/${post.userModel.user}`}>
-                    <p className='font-medium text-lg'>{post.userModel.First_Name + ' ' + post.userModel.Last_Name}</p>
-                    <p className='text-sm'>{post.Location}</p>
-                  </Link>
-                </div>
-              </div>
+              <UserOnPost post={post} />
               <h2 className='my-3'>{post.description}</h2>
               <img width={400} height={500} className='object-cover rounded-md w-[525px] h-[300px]' src={post.img} alt='post image' />
               <div className='pt-4 flex gap-3'>
