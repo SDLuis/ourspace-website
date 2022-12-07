@@ -20,7 +20,7 @@ export default function Navbar () {
   return (
     <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-900 '>
       <div className='flex items-center'>
-        <p className='text-4xl py-2 font-semibold text-gray-200'><Link href='/home'>Ourspace</Link></p>
+        <p className='text-4xl py-2 font-semibold text-gray-100'><Link href='/home'>Ourspace</Link></p>
       </div>
       {user
         ? <div className='flex items-center gap-6'>
@@ -31,8 +31,8 @@ export default function Navbar () {
           </div>
           <div>
             <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={user.img} alt='user' />
-            <div id='dropdownInformation' className={` ${userMenu ? 'absolute z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}>
-              <div className='py-3 px-4 text-sm text-gray-900 dark:text-white'>
+            <div id='dropdownInformation' className={` ${userMenu ? 'absolute z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 rounded divide-y shadow bg-gray-700 divide-gray-600`}>
+              <div className='py-3 px-4 text-sm text-gray-200'>
                 <div>{user.name}</div>
                 <div className='font-medium truncate'>User: {user.user}</div>
               </div>

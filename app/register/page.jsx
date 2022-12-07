@@ -18,16 +18,16 @@ export default function RegisterComponent () {
 
   return (
     <form onSubmit={Register}>
-      <div className='Register grid h-[95vh] place-items-center'>
-        <main className='w-full h-[100vh] sm:border border-solid border-gray-900 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
+      <div className='Register grid h-[65vh] sm:h-[95vh] place-items-center'>
+        <main className='w-full h-full sm:border border-solid border-gray-900 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
           <div className='formulario w-full flex flex-col gap-4 justify-center items-center h-full'>
             <center>
-              <h2 className='font-medium text-2xl dark:text-gray-200'>Register</h2>
+              <h2 className='font-medium text-2xl text-gray-200'>Register</h2>
             </center>
             <div className='w-10/12'>
               <div className='grid gap-6 w-full mb-4 grid-cols-2'>
                 <div>
-                  <label htmlFor='first_name' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>First name</label>
+                  <label htmlFor='first_name' className='block mb-2 text-sm font-medium text-gray-300'>First name</label>
                   <input
                     type='text' id='first_name' onChange={(e) => {
                       setForm({ ...form, firstNameReg: e.target.value })
@@ -35,7 +35,7 @@ export default function RegisterComponent () {
                   />
                 </div>
                 <div>
-                  <label htmlFor='last_name' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Last name</label>
+                  <label htmlFor='last_name' className='block mb-2 text-sm font-medium text-gray-300'>Last name</label>
                   <input
                     type='text' id='last_name' onChange={(e) => {
                       setForm({ ...form, lastNameReg: e.target.value })
@@ -44,7 +44,7 @@ export default function RegisterComponent () {
                 </div>
               </div>
               <div className='mb-4'>
-                <label htmlFor='user' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>User</label>
+                <label htmlFor='user' className='block mb-2 text-sm font-medium text-gray-300'>User</label>
                 <input
                   type='text' id='user' onChange={(e) => {
                     setForm({ ...form, userReg: e.target.value })
@@ -52,7 +52,7 @@ export default function RegisterComponent () {
                 />
               </div>
               <div className='mb-4'>
-                <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Password</label>
+                <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-300'>Password</label>
                 <input
                   type='password' onChange={(e) => {
                     setForm({ ...form, passwordReg: e.target.value })
@@ -74,7 +74,7 @@ export default function RegisterComponent () {
               </button>
             </div>
             <div>
-              <p className='login-card-footer-text dark:text-gray-200 text-lg'>
+              <p className='login-card-footer-text text-gray-200 text-lg'>
                 Already have an account?{' '}
                 <Link href='/login' className='border-b border-b-gray-300 text-gray-300'>
                   Log in here
