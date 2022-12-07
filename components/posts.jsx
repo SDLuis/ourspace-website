@@ -8,7 +8,7 @@ import UserOnPost from './useronpost'
 
 export default function Posts ({ posts }) {
   return posts.map((post) => (
-    <div className='flex flex-col w-full border-t border-gray-700 px-4 mb-5 ' key={post.Post_ID}>
+    <div className='flex flex-col w-full border-t border-gray-700 px-4 mb-1 ' key={post.Post_ID}>
       <div className='px-3 pt-3'>
         <UserOnPost post={post} />
       </div>
