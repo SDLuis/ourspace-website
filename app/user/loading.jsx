@@ -1,4 +1,4 @@
-import UserLoader from '../../../components/loadinguser'
+import UserLoader from '../../components/loadinguser'
 
 export default function Loading () {
   return (
