@@ -25,7 +25,7 @@ export default function Addpost () {
   return (
     <div className='w-full flex justify-center mb-3'>
       <div className='w-[90%] flex gap-3'>
-        <Image width={48} height={48} className='rounded-full w-12 h-12 sm:w-14 sm:h-14' src={img} alt='user' />
+        <Image width={48} height={48} className='rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover' src={img} alt='user' />
         <div className='w-full'>
           <TextareaAutosize
             className='w-full min-h-[80px] rounded-md p-2 max-h-[25rem] outline-none border-none leading-6 text-gray-200 text-base sm:text-lg bg-transparent resize-none'
