@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 import axios from 'axios'
 import Link from 'next/link'
 import Comment from '../../../components/comment'
 import { LikeButtonComponent } from '../../../components/like'
 import { Back } from '../../../components/icons'
 import UserOnPost from '../../../components/useronpost'
+import Image from 'next/image'
 
 export default async function Post ({ params, children }) {
   const { id } = params
@@ -17,17 +17,17 @@ export default async function Post ({ params, children }) {
   const post = await (await findPost()).data
 
   return (
-    <div className='sm:px-8 px-0'>
-      <main className='w-full flex justify-center text-white'>
-        <div className='w-full min-h-screen flex relative justify-center sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x border-solid sm:border-gray-900'>
-          <div className='py-5'>
-            <Link className='absolute top-7 left-6 sm:left-10' href='/home'><Back /></Link>
-          </div>
-          <div className='py-5 flex flex-col items-center'>
-            <div className='flex flex-col px-5 pt-3 w-[90%] sm:w-[440px] xl:w-[430px] border-solid border rounded-md mb-5 border-gray-900'>
+    <main className='w-full flex justify-center text-white'>
+      <div className='w-full min-h-screen flex relative justify-center sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x border-solid sm:border-gray-700'>
+        <Link className='absolute top-2 left-2 sm:-left-8' href='/home'><Back /></Link>
+        <div className='py-3 w-full flex flex-col items-center'>
+          <div className='flex flex-col w-full mb-5'>
+            <div className='ml-3'>
               <UserOnPost post={post} />
-              <h2 className='my-3'>{post.description}</h2>
-              <img width={400} height={500} className='object-cover rounded-md w-[525px] h-[300px]' src={post.img} alt='post image' />
+            </div>
+            <h2 className='my-3 ml-3'>{post.description}</h2>
+            <Image width={400} height={500} className='object-cover w-full h-[400px] sm:h-[300px]' src={post.img} alt='post image' />
+            <div className='px-2'>
               <div className='pt-4 flex gap-3'>
                 <LikeButtonComponent />
                 {
@@ -37,14 +37,14 @@ export default async function Post ({ params, children }) {
               <div className='pt-4 flex flex-col gap-3'>
                 <Comment />
                 {
-              post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p> Show comments</p> </Link> : <p>Without comments yet</p>
+              post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p> Show comments</p> </Link> : <p className='ml-2'>Without comments yet</p>
             }
                 {children}
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }

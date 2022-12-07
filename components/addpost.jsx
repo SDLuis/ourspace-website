@@ -24,7 +24,7 @@ export default function Addpost () {
 
   return (
     <div className='w-full flex justify-center mb-3'>
-      <div className='w-[90%] flex gap-3'>
+      <div className='w-full px-6 flex gap-3'>
         <Image width={48} height={48} className='rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover' src={img} alt='user' />
         <div className='w-full'>
           <TextareaAutosize
@@ -34,8 +34,8 @@ export default function Addpost () {
           {post.postImg.length !== 0
             ? <div className='relative'><Image className='w-full h-auto object-cover mb-3 rounded-md' src={URL.createObjectURL(post.postImg)} width={300} height={300} alt='' /> <div className='grid place-items-center absolute top-1 left-1 rounded-full bg-gray-900/80  hover:bg-gray-900/60 transition-all ease-in-out duration-300 p-1'><button onClick={() => { setPost({ ...post, postImg: [] }) }}> <Delete /> </button> </div></div>
             : null}
-          <div className='flex justify-between'>
-            <div className='-mt-[4px]'>
+          <div className='flex justify-between items-end'>
+            <div>
               <label className='cursor-pointer' htmlFor='file-input'>
                 <ImageIcon />
               </label>

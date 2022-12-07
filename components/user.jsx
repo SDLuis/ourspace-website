@@ -16,7 +16,7 @@ export default function User ({ foundUser, foundPosts }) {
 
   return (
     <div className='w-full flex justify-center lg:px-[18%]'>
-      <div className='flex flex-col w-full sm:w-[598px] items-center sm:border-x min-h-screen border-solid border-gray-900 pb-6'>
+      <div className='flex flex-col w-full sm:w-[598px] items-center sm:border-x min-h-screen border-solid border-gray-700 pb-6'>
         <div className='flex justify-start w-full'>
           <div className='flex items-center h-8 gap-6 sm:gap-10 py-7 sm:py-9'>
             <Link className='' href='/home'><Back /></Link>
@@ -34,7 +34,7 @@ export default function User ({ foundUser, foundPosts }) {
         <div className='mt-[68px] sm:mt-[84px]'>
           <p className='text-center text-gray-200 font-medium text-xl'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
         </div>
-        <div className='w-[95%] my-5 border-t border-solid border-gray-900'>
+        <div className='w-[95%] my-5 border-t border-solid border-gray-700'>
           <button className={`px-4 py-3 border-b-2 ${page === 'posts' ? 'border-sky-900' : 'border-b-transparent'}`} onClick={() => setPage('posts')}>Publicaciones</button>
           <button className={`px-4 py-3 border-b-2 ${page === 'info' ? 'border-sky-900' : 'border-b-transparent'}`} onClick={() => setPage('info')}>Información</button>
         </div>

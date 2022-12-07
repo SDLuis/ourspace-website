@@ -14,7 +14,7 @@ export default async function Post ({ params }) {
 
   return (
     comments.map((comment) => (
-      <div className='flex flex-col p-3 w-full border-solid border-t border-gray-900 ' key={comment.Comment_ID}>
+      <div className='flex flex-col p-3 w-full border-solid border-t border-gray-700 ' key={comment.Comment_ID}>
         <Link href={`/user/${comment.userModel.user}`}>
           <div className='flex gap-3'>
             <div className='rounded-full w-12 h-12 bg-gray-50 grid place-items-center'>

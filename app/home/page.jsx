@@ -10,7 +10,7 @@ export default function Home () {
         <div className='hidden xsm:flex justify-end w-[88px] lg:w-[270px] py-5'>
           <Utilities />
         </div>
-        <div className='w-full min-h-screen sm:w-full pt-5 flex flex-col items-center border-x border-gray-900'>
+        <div className='w-full min-h-screen sm:w-full pt-5 flex flex-col items-center border-x border-gray-700'>
           <Addpost />
           <ListOfPosts />
         </div>
@@ -18,7 +18,7 @@ export default function Home () {
           <Suggeration />
         </div>
       </main>
-      <footer className='flex w-full py-8 justify-center items-center border-t border-gray-900'>
+      <footer className='flex w-full py-8 justify-center items-center border-t border-gray-700'>
         <p>Luis is working yet</p>
       </footer>
     </div>

@@ -18,7 +18,7 @@ export default function Navbar () {
   }, [])
 
   return (
-    <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-900 '>
+    <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-700 '>
       <div className='flex items-center'>
         <p className='text-4xl py-2 font-semibold text-gray-100'><Link href='/home'>Ourspace</Link></p>
       </div>

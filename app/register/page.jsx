@@ -19,7 +19,7 @@ export default function RegisterComponent () {
   return (
     <form onSubmit={Register}>
       <div className='Register grid h-[65vh] sm:h-[95vh] place-items-center'>
-        <main className='w-full h-full sm:border border-solid border-gray-900 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
+        <main className='w-full h-full sm:border border-solid border-gray-700 bg-black sm:rounded-lg sm:w-[451px] sm:h-[90vh] '>
           <div className='formulario w-full flex flex-col gap-4 justify-center items-center h-full'>
             <center>
               <h2 className='font-medium text-2xl text-gray-200'>Register</h2>
@@ -31,7 +31,7 @@ export default function RegisterComponent () {
                   <input
                     type='text' id='first_name' onChange={(e) => {
                       setForm({ ...form, firstNameReg: e.target.value })
-                    }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-900 placeholder-gray-400 text-white' placeholder='Louis' required
+                    }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Louis' required
                   />
                 </div>
                 <div>
@@ -39,7 +39,7 @@ export default function RegisterComponent () {
                   <input
                     type='text' id='last_name' onChange={(e) => {
                       setForm({ ...form, lastNameReg: e.target.value })
-                    }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-900 placeholder-gray-400 text-white' placeholder='Rincon' required
+                    }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Rincon' required
                   />
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function RegisterComponent () {
                 <input
                   type='text' id='user' onChange={(e) => {
                     setForm({ ...form, userReg: e.target.value })
-                  }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-900 placeholder-gray-400 text-white' placeholder='LRincon' required
+                  }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='LRincon' required
                 />
               </div>
               <div className='mb-4'>
@@ -56,7 +56,7 @@ export default function RegisterComponent () {
                 <input
                   type='password' onChange={(e) => {
                     setForm({ ...form, passwordReg: e.target.value })
-                  }} id='password' className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-900 placeholder-gray-400 text-white' placeholder='•••••••••' required
+                  }} id='password' className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='•••••••••' required
                 />
               </div>
               <input className='w-[85%] sm:w-full' type='file' onChange={(e) => setForm({ ...form, img: e.target.files[0] })} />

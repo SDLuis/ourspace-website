@@ -11,7 +11,7 @@ export default function Home () {
           <div className='hidden 1xl:flex justify-center w-full py-5'>
             <Sidebar />
           </div>
-          <div className='w-full min-h-screen sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center border-x border-gray-900'>
+          <div className='w-full min-h-screen sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center border-x border-gray-700'>
             <ListOfPosts />
           </div>
           <div className='hidden md:flex justify-start w-[270px] py-2'>
@@ -20,7 +20,7 @@ export default function Home () {
         </main>
       </div>
       <AuthBanner />
-      <footer className='flex w-full py-8 justify-center items-center border-t border-gray-900'>
+      <footer className='flex w-full py-8 justify-center items-center border-t border-gray-700'>
         <p>Luis is working yet</p>
       </footer>
     </div>
