@@ -37,17 +37,17 @@ export default function Navbar () {
                 <div className='font-medium truncate'>User: {user.user}</div>
               </div>
               <ul className='py-1 text-sm text-gray-200' aria-labelledby='dropdownInformationButton'>
-                <li>
+                <li onClick={() => setUserMenu(!userMenu)}>
                   <Link href={`/user/${user.user}`} className='block py-2 px-4  hover:bg-gray-600 hover:text-white'>Perfil</Link>
                 </li>
-                <li>
+                <li onClick={() => setUserMenu(!userMenu)}>
                   <Link href='#' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Configuración</Link>
                 </li>
-                <li>
+                <li onClick={() => setUserMenu(!userMenu)}>
                   <Link href='#' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Earnings</Link>
                 </li>
               </ul>
-              <div className='py-1'>
+              <div className='py-1' onClick={() => setUserMenu(!userMenu)}>
                 <button onClick={() => logout()} className='block py-2 px-4 text-sm w-full bg-gray-600 text-gray-200 hover:text-white'>Cerrar sección</button>
               </div>
             </div>
