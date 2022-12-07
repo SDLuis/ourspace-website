@@ -11,7 +11,7 @@ export default function Home () {
           <div className='hidden 1xl:flex justify-center w-full py-5'>
             <Sidebar />
           </div>
-          <div className='w-full min-h-screen sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center border-x border-solid sm:border-gray-900'>
+          <div className='w-full min-h-screen sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center border-x border-gray-900'>
             <ListOfPosts />
           </div>
           <div className='hidden md:flex justify-start w-[270px] py-2'>
