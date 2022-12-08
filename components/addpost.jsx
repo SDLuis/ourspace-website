@@ -8,7 +8,7 @@ import InputPostType from './inputposttype'
 import { ImageIcon, Delete } from './icons'
 import placeholder from '../public/placeholder-user.jpg'
 
-export default function Addpost () {
+export default function Addpost ({ children }) {
   const { userLogged } = UseUser()
   const description = useRef('')
   const inputImg = useRef('')
@@ -36,6 +36,7 @@ export default function Addpost () {
         <div className='w-full'>
           <div className='flex justify-between'>
             <InputPostType />
+            {children}
           </div>
           <TextareaAutosize
             className='w-full min-h-[80px] rounded-md p-2 max-h-[25rem] outline-none border-none leading-6 text-gray-200 text-base sm:text-lg bg-transparent resize-none'
