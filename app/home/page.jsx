@@ -11,7 +11,7 @@ export default function Home () {
         <div className='hidden xsm:flex justify-end w-[88px] lg:w-[270px] py-5'>
           <Utilities />
         </div>
-        <div className='w-full min-h-screen sm:w-full pt-5 flex flex-col items-center border-x border-gray-700'>
+        <div className='w-full min-h-screen sm:w-full pt-3 flex flex-col items-center border-x border-gray-700'>
           <Addpost>
             <RenderCountries />
           </Addpost>

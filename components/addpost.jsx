@@ -52,7 +52,7 @@ export default function Addpost ({ children }) {
               </label>
               <input onChange={(e) => setPost({ ...post, postImg: e.target.files[0] })} ref={inputImg} className='hidden' id='file-input' type='file' />
             </div>
-            <button className='px-4 py-2 rounded-l-full rounded-r-full bg-sky-600 text-gray-200'>Postear</button>
+            <button className='px-4 py-2 rounded-l-full rounded-r-full bg-sky-700 text-gray-200'>Postear</button>
           </div>
         </div>
       </div>
