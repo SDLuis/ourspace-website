@@ -12,7 +12,7 @@ export default function Home () {
             <Sidebar />
           </div>
           <div className='w-full min-h-screen sm:w-[598px] md:w-[470px] lg:w-[598px] flex flex-col items-center border-x border-gray-700'>
-            <div className='flex pb-5'>
+            <div className='flex py-3'>
               <p className='font-semibold text-3xl'>Bienvenido!</p>
             </div>
             <ListOfPosts />
