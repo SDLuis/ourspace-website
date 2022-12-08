@@ -14,7 +14,7 @@ export default function Posts ({ posts }) {
       </div>
       <Link href={`/post/${post.Post_ID}`}>
         <h2 className='my-3 px-2'>{post.description}</h2>
-        <Image width={400} height={500} className='object-cover rounded-md w-full h-[400px] sm:h-[300px]' src={post.img} alt='post image' />
+        <Image width={400} height={500} className='object-cover rounded-lg w-full h-[400px] sm:h-[300px]' src={post.img} alt='post image' />
       </Link>
       <div className='px-2'>
         <div className='pt-4 flex gap-3'>
