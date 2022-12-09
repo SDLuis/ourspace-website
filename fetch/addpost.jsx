@@ -3,6 +3,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
+import { toast } from 'react-hot-toast'
 import UseUser from './login'
 
 export default function UseAddPost () {
@@ -35,13 +36,18 @@ export default function UseAddPost () {
     }
   }
 
-  const AddPost = () => {
+  const AddPost = async () => {
     const body = new FormData()
     body.append('Post_Type', postType.current.value)
     body.append('Location', Location())
     body.append('description', description.current.value)
     body.append('image', postImg)
-    console.log(Object.fromEntries(body))
+    return await axios.post('https://ourspace-api.up.railway.app/posts/add', body, { withCredentials: true })
+      .then(() => {
+        toast.success('Se ha añadido tu post!')
+        window.location.href = '/'
+      })
+      .catch(err => toast.error(`${err}`))
   }
 
   return { postImg, Cities, city, setPostImg, description, inputImg, user, postType, country, setcountry, AddPost }
