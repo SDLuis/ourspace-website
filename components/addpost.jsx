@@ -20,7 +20,7 @@ export default function Addpost ({ countries = [] }) {
 
   return (
     <div className='w-full flex justify-center mb-3'>
-      <div className='w-full px-7 flex gap-3'>
+      <div className='w-full px-4 flex gap-3'>
         <Image width={48} height={48} className='rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover' src={img} alt='user' />
         <div className='w-full'>
           <div className='flex justify-between'>
