@@ -1,8 +1,7 @@
 import ListOfPosts from '../../fetch/listOfPosts'
 import Utilities from '../../components/utilities'
 import Suggeration from '../../components/suggestion'
-import Addpost from '../../components/addpost'
-import RenderCountries from '../../fetch/country'
+import AddPost from '../../fetch/country'
 
 export default function Home () {
   return (
@@ -12,9 +11,7 @@ export default function Home () {
           <Utilities />
         </div>
         <div className='w-full min-h-screen sm:w-full pt-3 flex flex-col items-center border-x border-gray-700'>
-          <Addpost>
-            <RenderCountries />
-          </Addpost>
+          <AddPost />
           <ListOfPosts />
         </div>
         <div className='hidden lg:flex justify-center w-[20vw] py-5'>
