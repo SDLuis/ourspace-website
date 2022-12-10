@@ -19,7 +19,7 @@ export default function UseAddPost () {
   useEffect(() => {
     userLogged().then(data => setUser(data))
     country
-      ? axios.get(`https://country-api.up.railway.app/country/${country}`, { cache: 'force-cache' }).then(({ data }) => { setCities(data) })
+      ? axios.get(`https://country-api.up.railway.app/country/${country}`).then(({ data }) => { setCities(data) })
       : null
   }, [country])
 
