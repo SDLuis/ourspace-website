@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import axios from 'axios'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default async function Post ({ params }) {
   const { id } = params
@@ -14,12 +14,10 @@ export default async function Post ({ params }) {
 
   return (
     comments.map((comment) => (
-      <div className='flex flex-col p-3 w-full border-solid border-t border-gray-700 ' key={comment.Comment_ID}>
+      <div className='flex flex-col py-3 w-full border-solid border-t border-gray-700 ' key={comment.Comment_ID}>
         <Link href={`/user/${comment.userModel.user}`}>
           <div className='flex gap-3'>
-            <div className='rounded-full w-12 h-12 bg-gray-50 grid place-items-center'>
-              <img className='rounded-full w-[88%] h-[88%]' src={comment.userModel.img} alt='user' />
-            </div>
+            <Image width={56} height={56} className='rounded-full w-12 h-12 sm:w-14 sm:h-14' src={comment.userModel.img} alt='user' />
             <div className='h-12'>
               <p className='font-medium'>{comment.userModel.First_Name + ' ' + comment.userModel.Last_Name}</p>
               <h2 className='text-sm'>{comment.description}</h2>
