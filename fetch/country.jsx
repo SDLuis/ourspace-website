@@ -1,14 +1,7 @@
 import Addpost from '../components/addpost'
+import { countries } from './countriesdata'
 
-const host = 'https://country-api.up.railway.app'
-
-const fetchCountries = async () => {
-  return await fetch(`${host}/country`, { cache: 'force-cache' }).then(res => res.json())
-}
-
-export default async function AddPost () {
-  const countries = await (await fetchCountries())
-
+export default function AddPost () {
   return (
     <Addpost countries={countries} />
   )
