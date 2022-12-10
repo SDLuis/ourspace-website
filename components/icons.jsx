@@ -16,7 +16,7 @@ export const Like = ({ like }) => {
 }
 
 export const Send = () => {
-  return <svg className='w-8 h-8 fill-white' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M28.7 14.23 4.43 2.1a2 2 0 0 0-2.78 2.31L5 16 1.65 27.59a2 2 0 0 0 1.89 2.53 1.92 1.92 0 0 0 .89-.22L28.7 17.77a2 2 0 0 0 0-3.54Z' data-name='Layer 10' /></svg>
+  return <svg className='w-6 h-6 fill-white' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='M28.7 14.23 4.43 2.1a2 2 0 0 0-2.78 2.31L5 16 1.65 27.59a2 2 0 0 0 1.89 2.53 1.92 1.92 0 0 0 .89-.22L28.7 17.77a2 2 0 0 0 0-3.54Z' data-name='Layer 10' /></svg>
 }
 
 export const Back = () => {
