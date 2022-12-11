@@ -40,7 +40,7 @@ export default async function Post ({ params, children }) {
                 </div>
               </div>
               <div className='pt-3 flex flex-col gap-3'>
-                <Comment />
+                <Comment PostID={post.Post_ID} />
                 {
               post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p> Show comments</p> </Link> : <p>Without comments yet</p>
             }
