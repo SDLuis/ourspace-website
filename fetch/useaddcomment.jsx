@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
@@ -13,7 +14,7 @@ export default function UseAddComment ({ PostID }) {
     axios.post('https://ourspace-api.up.railway.app/comments/add', body, { withCredentials: true })
       .then(() => {
         toast.success('Se ha añadido tu comentario!')
-        window.location.href = '/'
+        window.location.href = `/post/${PostID}/comments`
       })
       .catch(err => toast.error(`${err}`))
   }
