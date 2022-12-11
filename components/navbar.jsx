@@ -5,42 +5,37 @@
 
 import Link from 'next/link'
 import { Home, Message, Add } from './icons'
-import UseUser from '../fetch/login'
-import { useEffect, useState } from 'react'
+import UserLogged from '../fetch/userLogged'
+import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 export default function Navbar () {
-  const [user, setUser] = useState('')
+  const { userFound, logout } = UserLogged()
   const [userMenu, setUserMenu] = useState(false)
-  const { userLogged, logout } = UseUser()
-  useEffect(() => {
-    userLogged().then(data => setUser(data))
-  }, [])
-
   return (
     <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-700 '>
       <div className='flex items-center'>
-        <p className='text-4xl py-2 font-semibold text-gray-100'><Link href='/home'>Ourspace</Link></p>
+        <p className='text-4xl font-semibold py-2 sm:py-0 text-gray-100'><Link href='/home'>Ourspace</Link></p>
       </div>
-      {user
-        ? <div className='flex items-center gap-6'>
-          <div className='hidden sm:flex items-center gap-6'>
-            <Home />
-            <Message />
-            <Link href='/post/add'>
-              <Add />
-            </Link>
-          </div>
-          <div>
-            <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={user.img} alt='user' />
+      <div className='flex items-center gap-6'>
+        <div className='hidden sm:flex items-center gap-6'>
+          <Home />
+          <Message />
+          <Link href='/post/add'>
+            <Add />
+          </Link>
+        </div>
+        {userFound
+          ? <div className='sm:hidden block'>
+            <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={userFound.img} alt='user' />
             <div id='dropdownInformation' className={` ${userMenu ? 'absolute z-10 top-14 right-2 sm:right-28' : 'hidden'} w-44 rounded divide-y shadow bg-gray-700 divide-gray-600`}>
               <div className='py-3 px-4 text-sm text-gray-200'>
-                <div>{user.name}</div>
-                <div className='font-medium truncate'>User: {user.user}</div>
+                <div>{userFound.name}</div>
+                <div className='font-medium truncate'>User: {userFound.user}</div>
               </div>
               <ul className='py-1 text-sm text-gray-200' aria-labelledby='dropdownInformationButton'>
                 <li onClick={() => setUserMenu(!userMenu)}>
-                  <Link href={`/user/${user.user}`} className='block py-2 px-4  hover:bg-gray-600 hover:text-white'>Perfil</Link>
+                  <Link href={`/user/${userFound.user}`} className='block py-2 px-4  hover:bg-gray-600 hover:text-white'>Perfil</Link>
                 </li>
                 <li onClick={() => setUserMenu(!userMenu)}>
                   <Link href='#' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Configuración</Link>
@@ -54,8 +49,8 @@ export default function Navbar () {
               </div>
             </div>
           </div>
-        </div>
-        : null}
+          : null}
+      </div>
       <Toaster />
     </div>
   )
