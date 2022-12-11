@@ -27,7 +27,9 @@ export default function Navbar () {
           <div className='hidden sm:flex items-center gap-6'>
             <Home />
             <Message />
-            <Add />
+            <Link href='/post/add'>
+              <Add />
+            </Link>
           </div>
           <div>
             <img className='w-12 h-12 mt-1 object-cover rounded-full cursor-pointer' onClick={() => setUserMenu(!userMenu)} src={user.img} alt='user' />
