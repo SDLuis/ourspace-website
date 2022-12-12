@@ -10,7 +10,7 @@ import Loading from './loading'
 import { Location, BirthDay, Edit, Profile, Logout } from './icons'
 
 export default function Utilities () {
-  const { userFound, loading } = UserLogged()
+  const { userFound, loading, logout } = UserLogged()
   const img = !userFound.img ? placeholder : userFound.img
 
   return (
@@ -49,8 +49,12 @@ export default function Utilities () {
               </div>
               <div className='border-t border-t-gray-700' />
               <div className='flex justify-between items-center p-3'>
-                <Profile />
-                <Logout />
+                <Link href={`/user/${userFound.user}`}>
+                  <Profile />
+                </Link>
+                <button onClick={() => logout()}>
+                  <Logout />
+                </button>
               </div>
             </div>
             <div className='flex-col gap-4 flex items-center w-full xl:hidden p-2'>
@@ -58,7 +62,9 @@ export default function Utilities () {
                 <Image width={48} height={48} className='rounded-full w-12 h-12 object-cover' src={img} alt='user' />
               </Link>
               <Edit />
-              <Logout />
+              <button onClick={() => logout()}>
+                <Logout />
+              </button>
             </div>
           </div>
           : null}
