@@ -7,7 +7,7 @@ export default function Home () {
   return (
     <div className='sm:px-8 px-0'>
       <main className='min-h-screen w-full md:w-[90%] grid justify-center xsm:grid-cols-[98px_598px] lg:grid-cols-[275px_598px_auto] 1xl:grid-cols-[275px_598px_auto] gap-1 text-white'>
-        <div className='hidden xsm:flex justify-end w-[88px] lg:w-[270px] py-5'>
+        <div className='hidden xsm:flex justify-end w-[88px] lg:w-[270px] py-2'>
           <Utilities />
         </div>
         <div className='w-full min-h-screen sm:w-full pt-3 flex flex-col items-center border-x border-gray-700'>
