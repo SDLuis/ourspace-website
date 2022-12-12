@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -9,8 +10,8 @@ export default function UserLogged () {
   const { userLogged, logout } = UseUser()
   useEffect(() => {
     setLoading(true)
-    userLogged().then(({ user }) => {
-      axios.get(`https://ourspace-api.up.railway.app/users/find/${user}`).then(({ data }) => setUserLogged(data)).finally(setLoading(false))
+    userLogged().then((user) => {
+      user ? axios.get(`https://ourspace-api.up.railway.app/users/find/${user.user}`).then(({ data }) => setUserLogged(data)).finally(setLoading(false)) : null
     })
   }, [])
 
