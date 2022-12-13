@@ -3,7 +3,7 @@
 import { Like } from './icons'
 import useReaction from '../fetch/reaction'
 
-export function LikeButtonComponent ({ post }) {
+export default function LikeButtonComponent ({ post }) {
   const { reactions, AddReaction, liked } = useReaction(post.Post_ID)
 
   return (

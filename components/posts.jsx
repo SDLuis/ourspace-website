@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Comment from '../components/comment'
-import { LikeButtonComponent } from '../components/like'
+import LikeButtonComponent from '../components/like'
 import UserImg from './userimg'
 import UserOnPost from './useronpost'
 

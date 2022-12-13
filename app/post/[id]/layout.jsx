@@ -1,7 +1,6 @@
-import axios from 'axios'
 import Link from 'next/link'
 import Comment from '../../../components/comment'
-import { LikeButtonComponent } from '../../../components/like'
+import LikeButtonComponent from '../../../components/like'
 import { Back } from '../../../components/icons'
 import UserOnPost from '../../../components/useronpost'
 import UserImg from '../../../components/userimg'
@@ -12,10 +11,10 @@ export default async function Post ({ params, children }) {
   const host = 'https://ourspace-api.up.railway.app'
 
   async function findPost () {
-    return await axios.get(`${host}/posts/${id}`, { next: { revalidate: 10 } })
+    return await fetch(`${host}/posts/${id}`, { cache: 'no-store' }).then(res => res.json())
   }
 
-  const post = await (await findPost()).data
+  const post = await (await findPost())
 
   return (
     <main className='w-screen min-h-screen flex justify-center text-white'>
@@ -33,10 +32,7 @@ export default async function Post ({ params, children }) {
                 : null}
               <div>
                 <div className={`${post.img ? 'pt-4' : ''} flex gap-3`}>
-                  <LikeButtonComponent />
-                  {
-              post.reactionModels ? post.reactionModels.length > 1 ? <p>{post.reactionModels.length} reactions</p> : <p>{post.reactionModels.length} reaction</p> : <p>Without reactions yet</p>
-            }
+                  <LikeButtonComponent post={post} />
                 </div>
               </div>
               <div className='pt-3 flex flex-col gap-3'>
