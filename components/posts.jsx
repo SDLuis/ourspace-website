@@ -23,12 +23,7 @@ export default function Posts ({ posts }) {
             : null}
         </Link>
         <div>
-          <div className={`${post.img ? 'pt-4' : ''} flex gap-3`}>
-            <LikeButtonComponent />
-            {
-            post.reactionModels ? post.reactionModels.length > 1 ? <p>{post.reactionModels.length} reactions</p> : <p>{post.reactionModels.length} reaction</p> : <p>Without reactions yet</p>
-          }
-          </div>
+          <LikeButtonComponent post={post} />
           <div className='pt-3 flex flex-col gap-3'>
             <Comment PostID={post.Post_ID} />
             {
