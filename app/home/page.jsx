@@ -1,7 +1,7 @@
 import Utilities from '../../components/utilities'
 import Suggeration from '../../components/suggestion'
 import AddPost from '../../fetch/country'
-import RenderPosts from '../../fetch/listOfPostsHome'
+import RenderPosts from '../../fetch/listOfPosts'
 
 export default function Home () {
   return (

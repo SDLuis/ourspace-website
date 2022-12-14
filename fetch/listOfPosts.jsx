@@ -1,5 +1,4 @@
-import Posts from '../components/posts'
-
+import ListOfPosts from '../components/listOfPost'
 const host = 'https://ourspace-api.up.railway.app'
 
 const fetchPosts = () => {
@@ -10,6 +9,6 @@ export default async function RenderPosts () {
   const posts = await (await fetchPosts())
 
   return (
-    <Posts posts={posts} />
+    <ListOfPosts prevPosts={posts} />
   )
 }

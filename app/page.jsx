@@ -1,4 +1,4 @@
-import RenderPosts from '../fetch/listOfPostsHome'
+import RenderPosts from '../fetch/listOfPosts'
 import Sidebar from '../components/sidebar'
 import Auth from '../components/auth'
 import AuthBanner from '../components/authbanner'

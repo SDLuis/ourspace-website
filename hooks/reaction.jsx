@@ -5,11 +5,14 @@ import axios from 'axios'
 import UserLogged from './userLogged'
 
 export default function Reaction (postID) {
+  let ID
+  let UserLiked
   const { userFound } = UserLogged()
   const [reactions, setReactions] = useState([])
   const [liked, setLiked] = useState(false)
-  let UserLiked
+
   const filterLikes = reactions?.filter((item) => (item.User_ID === userFound?.User_ID))
+  reactions.length > 0 ? ID = reactions[0].Reaction_ID : null
 
   if (filterLikes.length > 0) {
     UserLiked = true
@@ -18,12 +21,9 @@ export default function Reaction (postID) {
   }
 
   useEffect(() => {
-    postID ? axios.get(`https://ourspace-api.up.railway.app/reactions/find/${postID}`).then((res) => { setReactions(res.data) }) : null
     setLiked(UserLiked)
+    postID ? axios.get(`https://ourspace-api.up.railway.app/reactions/find/${postID}`).then((res) => { setReactions(res.data) }) : null
   }, [postID, UserLiked])
-
-  let ID
-  reactions.length > 0 ? ID = reactions[0].Reaction_ID : null
 
   const AddReaction = (PostID) => {
     if (userFound) {
