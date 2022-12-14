@@ -28,7 +28,7 @@ export default async function Post ({ params, children }) {
                 <h2>{post.description}</h2>
               </UserOnPost>
               {post.img
-                ? <Image width={400} height={500} className='object-cover rounded-lg w-full h-[200px] sm:h-[300px]' src={post.img} alt='post image' />
+                ? <Image width={400} height={500} className='object-cover rounded-lg w-full h-auto' src={post.img} alt='post image' />
                 : null}
               <div>
                 <div className={`${post.img ? 'pt-4' : ''} flex gap-3`}>
