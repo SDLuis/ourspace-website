@@ -6,9 +6,11 @@ import Posts from './posts'
 import { UsePosts } from '../hooks/usePosts'
 import LoadingPost from './loadingposts'
 import useNearScreen from '../hooks/useNearScreen'
+import UserLogged from '../hooks/userLogged'
 import debounce from 'just-debounce-it'
 
 export default function ListOfPosts ({ prevPosts = [] } = {}) {
+  const { userFound } = UserLogged()
   const { posts, loading, setPage } = UsePosts({ prevPosts })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({
@@ -27,7 +29,7 @@ export default function ListOfPosts ({ prevPosts = [] } = {}) {
   return (
     <div className='w-full'>
       <div className='min-h-screen'>
-        <Posts posts={posts} />
+        <Posts posts={posts} userLogged={userFound} />
       </div>
       <div id='visor' ref={externalRef} />
     </div>
