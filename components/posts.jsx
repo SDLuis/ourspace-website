@@ -8,7 +8,7 @@ import UserImg from './userimg'
 import UserOnPost from './useronpost'
 import { Delete } from './icons'
 
-export default function Posts ({ posts, userLogged = '' }) {
+export default function Posts ({ posts, userLogged = '', removePost = null }) {
   const OwnerPost = (userModel) => {
     if (userModel.User_ID === userLogged?.User_ID) { return false } else { return true }
   }
@@ -36,7 +36,7 @@ export default function Posts ({ posts, userLogged = '' }) {
           </div>
         </div>
       </div>
-      <div hidden={OwnerPost(post.userModel)} className='text-gray-200 absolute top-2 right-3'><Delete /></div>
+      <div hidden={OwnerPost(post.userModel)} onClick={() => removePost(post.Post_ID)} className='text-gray-200 absolute top-2 right-3'><Delete /></div>
     </div>
   ))
 }

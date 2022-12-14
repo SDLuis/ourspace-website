@@ -11,7 +11,7 @@ import debounce from 'just-debounce-it'
 
 export default function ListOfPosts ({ prevPosts = [] } = {}) {
   const { userFound } = UserLogged()
-  const { posts, loading, setPage } = UsePosts({ prevPosts })
+  const { posts, loading, setPage, removePost } = UsePosts({ prevPosts })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,
@@ -29,7 +29,7 @@ export default function ListOfPosts ({ prevPosts = [] } = {}) {
   return (
     <div className='w-full'>
       <div className='min-h-screen'>
-        <Posts posts={posts} userLogged={userFound} />
+        <Posts posts={posts} userLogged={userFound} removePost={removePost} />
       </div>
       <div id='visor' ref={externalRef} />
     </div>

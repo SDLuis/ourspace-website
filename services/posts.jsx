@@ -20,3 +20,9 @@ export function getUserPosts ({
 
   return axios.get(apiURL, { withCredentials: true }).then(res => { return res })
 }
+
+export function deletePost (PostID) {
+  const apiURL = `${host}/posts/delete/${PostID}`
+
+  return axios.delete(apiURL, { withCredentials: true }).then(res => { return res })
+}

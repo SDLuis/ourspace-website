@@ -2,7 +2,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import PostService from '../services/posts'
+import { toast } from 'react-hot-toast'
+import PostService, { deletePost } from '../services/posts'
 
 export function UsePosts ({ prevPosts = [] } = {}) {
   const INITIAL_PAGE = 0
@@ -27,5 +28,12 @@ export function UsePosts ({ prevPosts = [] } = {}) {
     PostService({ page }).then(({ data }) => setPosts(prevPosts => prevPosts.concat(data))).finally(setLoading(false))
   }, [page])
 
-  return { posts, setPosts, loading, setPage }
+  const removePost = (PostID) => {
+    deletePost(PostID).then(({ data }) => {
+      toast.success(data)
+      setTimeout(() => { window.location.reload() }, 700)
+    }).catch(err => toast.error(err))
+  }
+
+  return { posts, setPosts, loading, setPage, removePost }
 }
