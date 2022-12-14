@@ -8,8 +8,8 @@ import LoadingPost from './loadingposts'
 import useNearScreen from '../hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 
-export default function ListOfPosts () {
-  const { posts, loading, setPage } = UsePosts()
+export default function ListOfPosts ({ prevPosts = [] } = {}) {
+  const { posts, loading, setPage } = UsePosts({ prevPosts })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,

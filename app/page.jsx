@@ -1,4 +1,4 @@
-import ListOfPosts from '../fetch/listOfPosts'
+import RenderPosts from '../fetch/listOfPostsHome'
 import Sidebar from '../components/sidebar'
 import Auth from '../components/auth'
 import AuthBanner from '../components/authbanner'
@@ -15,7 +15,7 @@ export default function Home () {
             <div className='flex py-3'>
               <p className='font-semibold text-3xl'>Bienvenido!</p>
             </div>
-            <ListOfPosts />
+            <RenderPosts />
           </div>
           <div className='hidden md:flex justify-start w-[270px] py-2'>
             <Auth />

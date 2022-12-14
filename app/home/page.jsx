@@ -1,8 +1,7 @@
-'use client'
 import Utilities from '../../components/utilities'
 import Suggeration from '../../components/suggestion'
 import AddPost from '../../fetch/country'
-import ListOfPosts from '../../components/listOfPost'
+import RenderPosts from '../../fetch/listOfPostsHome'
 
 export default function Home () {
   return (
@@ -13,7 +12,7 @@ export default function Home () {
         </div>
         <div className='w-full min-h-screen sm:w-full pt-3 flex flex-col items-center border-x border-gray-700'>
           <AddPost />
-          <ListOfPosts />
+          <RenderPosts />
         </div>
         <div className='hidden lg:flex justify-center w-[20vw] py-5'>
           <Suggeration />
