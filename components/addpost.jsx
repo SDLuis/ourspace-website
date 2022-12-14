@@ -6,7 +6,7 @@ import TextareaAutosize from 'react-textarea-autosize'
 import InputPostType from './inputposttype'
 import { ImageIcon, Delete } from './icons'
 import placeholder from '../public/placeholder-user.jpg'
-import UseAddPost from '../fetch/addpost'
+import UseAddPost from '../hooks/addpost'
 import LocationInputs from './location'
 
 export default function Addpost ({ countries = [] }) {

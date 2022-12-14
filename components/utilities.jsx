@@ -5,7 +5,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import placeholder from '../public/placeholder-user.jpg'
-import UserLogged from '../fetch/userLogged'
+import UserLogged from '../hooks/userLogged'
 import Loading from './loading'
 import { Location, BirthDay, Edit, Profile, Logout } from './icons'
 

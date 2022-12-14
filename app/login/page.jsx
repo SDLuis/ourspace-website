@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
-import UseAuth from '../../fetch/login'
+import UseAuth from '../../hooks/login'
 
 export default function LoginComponent () {
   const { login, setUser, setPassword, disabled, isLogged } = UseAuth()

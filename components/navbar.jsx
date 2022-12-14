@@ -5,7 +5,7 @@
 
 import Link from 'next/link'
 import { Home, Message, Add } from './icons'
-import UserLogged from '../fetch/userLogged'
+import UserLogged from '../hooks/userLogged'
 import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 
