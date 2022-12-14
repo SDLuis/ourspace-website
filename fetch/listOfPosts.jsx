@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Posts from '../components/posts'
 
 const host = 'https://ourspace-api.up.railway.app'

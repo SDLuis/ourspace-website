@@ -1,7 +1,8 @@
-import ListOfPosts from '../../fetch/listOfPosts'
+'use client'
 import Utilities from '../../components/utilities'
 import Suggeration from '../../components/suggestion'
 import AddPost from '../../fetch/country'
+import ListOfPosts from '../../components/listOfPost'
 
 export default function Home () {
   return (

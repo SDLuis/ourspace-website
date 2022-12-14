@@ -4,7 +4,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Back } from './icons'
-import Posts from './posts'
+import ListOfOwnPosts from './listOfOwnPosts'
 import { useState } from 'react'
 import placeholder from '../public/placeholder-user.jpg'
 import placeholderCover from '../public/placeholder-portada.webp'
@@ -43,7 +43,7 @@ export default function User ({ foundUser, foundPosts }) {
             ? <div className='w-full'>
               {foundPosts.length === 0
                 ? <div className='flex justify-center my-12'><p className='text-gray-200 text-lg tracking-wide'>No post yet</p></div>
-                : <div className='w-full flex flex-col items-center mt-5'><Posts posts={foundPosts} /> </div>}
+                : <div className='w-full flex flex-col items-center mt-5'><ListOfOwnPosts prevPosts={foundPosts} user={foundUser.user} /> </div>}
             </div>
             : <div className='w-full h-[85vh] grid place-items-center'> Info </div>
 }
