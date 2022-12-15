@@ -16,12 +16,13 @@ export default function UseAddPost () {
   const [postImg, setPostImg] = useState([])
   const [country, setcountry] = useState('')
   const [Cities, setCities] = useState([])
+  const [disabled, setDisabled] = useState(false)
   useEffect(() => {
     userLogged().then(data => setUser(data))
     country
       ? axios.get(`https://country-api.up.railway.app/country/${country}`).then(({ data }) => { setCities(data) })
       : null
-  }, [country])
+  }, [country, disabled])
 
   const Location = () => {
     if (country) {
@@ -37,18 +38,25 @@ export default function UseAddPost () {
   }
 
   const AddPost = async () => {
-    const body = new FormData()
-    body.append('Post_Type', postType.current.value)
-    body.append('Location', Location())
-    body.append('description', description.current.value)
-    body.append('image', postImg)
-    return await axios.post('https://ourspace-api.up.railway.app/posts/add', body, { withCredentials: true })
-      .then(() => {
-        toast.success('Se ha añadido tu post!')
-        window.location.href = '/'
-      })
-      .catch(err => toast.error(`${err}`))
+    setDisabled(true)
+    if (description.current?.value !== '') {
+      const body = new FormData()
+      body.append('Post_Type', postType.current.value)
+      body.append('Location', Location())
+      body.append('description', description.current.value)
+      body.append('image', postImg)
+      return await axios.post('https://ourspace-api.up.railway.app/posts/add', body, { withCredentials: true })
+        .then(() => {
+          toast.success('Se ha añadido tu post!')
+          window.location.href = '/'
+        })
+        .catch(err => toast.error(`${err}`))
+        .finally(setTimeout(() => { setDisabled(false) }, 10000))
+    } else {
+      toast.error('Agregue una descripción')
+      setTimeout(() => { setDisabled(false) }, 3000)
+    }
   }
 
-  return { postImg, Cities, city, setPostImg, description, inputImg, user, postType, country, setcountry, AddPost }
+  return { postImg, Cities, city, setPostImg, description, inputImg, user, postType, country, setcountry, AddPost, disabled }
 }

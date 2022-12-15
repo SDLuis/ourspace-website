@@ -10,7 +10,7 @@ import UseAddPost from '../hooks/addpost'
 import LocationInputs from './location'
 
 export default function Addpost ({ countries = [] }) {
-  const { postImg, setPostImg, description, inputImg, user, AddPost, postType, country, setcountry, city, Cities } = UseAddPost()
+  const { postImg, setPostImg, description, inputImg, user, AddPost, postType, country, setcountry, city, Cities, disabled } = UseAddPost()
 
   const img = !user.img ? placeholder : user.img
   const removingImg = () => {
@@ -41,7 +41,7 @@ export default function Addpost ({ countries = [] }) {
               </label>
               <input onChange={(e) => setPostImg(e.target.files[0])} ref={inputImg} className='hidden' id='file-input' type='file' />
             </div>
-            <button onClick={() => AddPost(country, city)} className='px-4 py-2 rounded-l-full rounded-r-full bg-sky-700 text-gray-200'>Postear</button>
+            <button disabled={disabled} onClick={() => AddPost(country, city)} className='px-4 disabled:bg-sky-500 py-2 rounded-l-full rounded-r-full bg-sky-700 text-gray-200'>Postear</button>
           </div>
         </div>
       </div>
