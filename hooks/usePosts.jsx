@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import PostService, { deletePost } from '../services/posts'
 
-export function UsePosts ({ prevPosts = [] } = {}) {
+export default function UsePosts ({ prevPosts = [] } = {}) {
   const INITIAL_PAGE = 0
 
   const [posts, setPosts] = useState(prevPosts)

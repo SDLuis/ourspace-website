@@ -3,7 +3,7 @@
 
 import { useEffect, useCallback, useRef } from 'react'
 import Posts from './posts'
-import { UsePosts } from '../hooks/usePosts'
+import UsePosts from '../hooks/usePosts'
 import LoadingPost from './loadingposts'
 import useNearScreen from '../hooks/useNearScreen'
 import UserLogged from '../hooks/userLogged'
