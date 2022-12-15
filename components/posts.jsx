@@ -22,7 +22,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
         </UserOnPost>
         <Link href={`/post/${post.Post_ID}`}>
           {post.img
-            ? <div className='w-full pr-1'><Image width={400} height={500} className='object-cover rounded-xl w-[100%] h-auto max-h-[500px]' src={post.img} alt='post image' /></div>
+            ? <div className='w-full pr-1'><Image width={400} height={500} className='object-cover rounded-xl min-w-[100%] h-auto max-h-[500px]' src={post.img} alt='post image' /></div>
             : null}
         </Link>
         <div>
@@ -30,7 +30,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
           <div className='pt-3 flex flex-col gap-3'>
             <Comment PostID={post.Post_ID} />
             {
-            post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p> Show comments</p> </Link> : <p>Without comments yet</p>
+            post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p>Mostrar comentarios</p> </Link> : <p>Sin comentarios aún</p>
           }
           </div>
         </div>
