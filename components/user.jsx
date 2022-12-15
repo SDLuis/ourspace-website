@@ -18,9 +18,9 @@ export default function User ({ foundUser, foundPosts }) {
     <div className='w-full flex justify-center lg:px-[18%]'>
       <div className='flex flex-col w-full sm:w-[598px] items-center sm:border-x min-h-screen border-solid border-gray-700 pb-6'>
         <div className='flex justify-start w-full'>
-          <div className='flex items-center h-8 gap-6 sm:gap-10 py-7 sm:py-9'>
-            <Link className='' href='/home'><Back /></Link>
-            <p className='text-2xl font-semibold -mt-1'>User</p>
+          <div className='flex items-center h-8 gap-6 px-2.5 py-7 sm:py-9'>
+            <Link className='p-2 hover:bg-gray-900 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
+            <p className='text-2xl font-semibold -mt-1'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
           </div>
         </div>
         <div className='relative flex justify-center w-full sm:w-[598px] h-[60%] sm:h-[280px]'>

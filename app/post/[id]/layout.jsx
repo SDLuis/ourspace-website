@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Comment from '../../../components/comment'
 import LikeButtonComponent from '../../../components/like'
 import { Back } from '../../../components/icons'
-import UserOnPost from '../../../components/useronpost'
 import UserImg from '../../../components/userimg'
 import Image from 'next/image'
 
@@ -17,21 +16,32 @@ export default async function Post ({ params, children }) {
   const post = await (await findPost())
 
   return (
-    <main className='w-screen min-h-screen flex justify-center text-white'>
-      <div className='w-full flex flex-col p-4 mb-1 relative items-center sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x sm:border-b border-solid sm:border-gray-700'>
-        <div className='w-full flex gap-2'>
-          <Link className='absolute top-2 left-0 sm:-left-8' href='/home'><Back /></Link>
-          <div className='w-12 h-12 sm:w-14 sm:h-14'><UserImg post={post} /></div>
-          <div className='w-full flex flex-[2]'>
+    <main className='w-full min-h-screen flex justify-center text-white'>
+      <div className='w-full sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x border-solid sm:border-gray-700'>
+        <div className='w-full flex flex-col px-4'>
+          <div className='flex -ml-1.5 -mt-2 items-center h-8 gap-6 py-7 sm:py-9'>
+            <Link className='p-1 hover:bg-gray-900 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
+            <p className='text-2xl font-semibold -mt-1.5'>Post</p>
+          </div>
+          <div className='w-full flex flex-col'>
+            <div className='flex gap-3'>
+              <div className='w-12 h-12 sm:w-14 sm:h-14'><UserImg post={post} /></div>
+              <div className='flex flex-col'>
+                <div className='h-14 sm:h-16'>
+                  <Link className='' href={`/user/${post.userModel.user}`}>
+                    <p className='font-medium text-lg text-gray-200'>{post.userModel.First_Name + ' ' + post.userModel.Last_Name}</p>
+                  </Link>
+                  <p className='text-base text-gray-400'>{post.Location}</p>
+                </div>
+              </div>
+            </div>
+            <h2 className='text-lg mb-2'>{post.description}</h2>
             <div className='flex flex-col w-full'>
-              <UserOnPost post={post}>
-                <h2>{post.description}</h2>
-              </UserOnPost>
               {post.img
-                ? <Image width={400} height={500} className='object-cover rounded-lg w-full h-auto' src={post.img} alt='post image' />
+                ? <Image width={400} height={500} className='object-cover rounded-xl w-full h-auto' src={post.img} alt='post image' />
                 : null}
               <div>
-                <div className={`${post.img ? 'pt-4' : ''} flex gap-3`}>
+                <div className='flex gap-3'>
                   <LikeButtonComponent post={post} />
                 </div>
               </div>
@@ -43,10 +53,11 @@ export default async function Post ({ params, children }) {
               </div>
             </div>
           </div>
+          <div className='w-full my-2'>
+            {children}
+          </div>
         </div>
-        <div className='w-full mt-2'>
-          {children}
-        </div>
+        <div className='w-full border-b border-solid border-gray-700 mb-10' />
       </div>
     </main>
   )

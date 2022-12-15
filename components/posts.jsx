@@ -22,7 +22,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
         </UserOnPost>
         <Link href={`/post/${post.Post_ID}`}>
           {post.img
-            ? <div className='w-full pr-1'><Image width={400} height={500} className='object-cover rounded-xl w-[100%] max-h-[500px]' src={post.img} alt='post image' /></div>
+            ? <div className='w-full pr-1'><Image width={400} height={500} className='object-cover rounded-xl w-[100%] h-auto max-h-[500px]' src={post.img} alt='post image' /></div>
             : null}
         </Link>
         <div>
