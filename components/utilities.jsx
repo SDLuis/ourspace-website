@@ -34,7 +34,9 @@ export default function Utilities () {
                     </Link>
                   </div>
                   <div className='py-3'>
-                    <Edit />
+                    <Link href='/user/edit'>
+                      <Edit />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -61,7 +63,9 @@ export default function Utilities () {
               <Link href={`/user/${userFound.user}`}>
                 <Image width={48} height={48} className='rounded-full w-12 h-12 object-cover' src={img} alt='user' />
               </Link>
-              <Edit />
+              <Link href='/user/edit'>
+                <Edit />
+              </Link>
               <button onClick={() => logout()}>
                 <Logout />
               </button>
