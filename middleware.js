@@ -5,7 +5,7 @@ export async function middleware (request) {
   const cookie = request.cookies.get('ourspace')?.value
   const secret = new TextEncoder().encode('ourspace')
 
-  if (request.nextUrl.pathname.includes('/home')) {
+  if (request.nextUrl.pathname.includes('/home') || request.nextUrl.pathname.includes('/user/edit')) {
     if (cookie === undefined) {
       return NextResponse.redirect(new URL('/', request.url))
     }
