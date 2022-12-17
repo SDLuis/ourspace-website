@@ -1,9 +1,15 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import EditUser from '../hooks/edituser'
+import UseAddPost from '../hooks/addpost'
+import { countries } from '../fetch/countriesdata'
 
 export default function UserEdit ({ user }) {
-  const { form, setForm, disabled, postType } = EditUser({ user })
+  const { form, setForm, disabled, countryFromUser, cityFromUser } = EditUser({ user })
+  const { setcountry, Cities, city } = UseAddPost()
+  const { cities } = Cities
+
   return (
     <form>
       <div className='Register grid min-h-[100vh] h-auto place-items-center'>
@@ -17,7 +23,7 @@ export default function UserEdit ({ user }) {
                 <div>
                   <label htmlFor='first_name' className='block mb-2 text-sm font-medium text-gray-300'>Nombre</label>
                   <input
-                    type='text' id='first_name' value={form.First_Name ? form.First_Name : ''} onChange={(e) => {
+                    type='text' id='first_name' value={form.First_Name ?? ''} onChange={(e) => {
                       setForm({ ...form, firstNameReg: e.target.value })
                     }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Louis' required
                   />
@@ -25,7 +31,7 @@ export default function UserEdit ({ user }) {
                 <div>
                   <label htmlFor='last_name' className='block mb-2 text-sm font-medium text-gray-300'>Apellido</label>
                   <input
-                    value={form.Last_Name ? form.Last_Name : ''}
+                    value={form.Last_Name ?? ''}
                     type='text' id='last_name' onChange={(e) => {
                       setForm({ ...form, lastNameReg: e.target.value })
                     }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Rincon' required
@@ -35,24 +41,36 @@ export default function UserEdit ({ user }) {
               <div className='mb-4'>
                 <label htmlFor='dateofbirth' className='block mb-2 text-sm font-medium text-gray-300'>Fecha de nacimiento</label>
                 <input
-                  value={user.Date_Of_Birth ? user.Date_Of_Birth : ''}
+                  value={user.Date_Of_Birth ?? ''}
                   type='text' id='dateofbirth' onChange={(e) => {
                     setForm({ ...form, userReg: e.target.value })
                   }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='10-10-1990' required
                 />
               </div>
-              <div className='mb-4'>
-                <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>Locación</label>
-                <select ref={postType} className='w-28 cursor-pointer bg-black border border-sky-900 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
-                  <option value='Public'>Public</option>
-                  <option value='Just Friends'>Just Friends</option>
-                  <option value='Private'>Private</option>
-                </select>
+              <div className='mb-4 flex justify-between'>
+                <div>
+                  <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>País</label>
+                  <select defaultValue={countryFromUser ?? 'anonimo'} onChange={(e) => setcountry(e.target.value)} className='bg-black cursor-pointer border w-32 md:w-44 border-sky-900 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5 mb-2'>
+                    <option value=''>anonimo</option>
+                    <option value={countryFromUser ?? 'anonimo'}>{countryFromUser ?? 'anonimo'}</option>
+                    {countries.length && countries.map((name) => (<option value={name} key={name}> {name}</option>))}
+                  </select>
+                </div>
+                {countryFromUser
+                  ? <div>
+                    <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>Ciudad</label>
+                    <select defaultValue={cityFromUser ?? 'anonimo'} ref={city} className='w-32 md:w-44 bg-black border border-sky-600 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
+                      <option value=''>anonimo</option>
+                      <option value={cityFromUser ?? 'anonimo'}>{cityFromUser ?? 'anonimo'}</option>
+                      {Cities.length !== 0 ? cities.length !== 0 ? cities.map(({ id, name }) => (<option key={id}>{name}</option>)) : <option value=''>No hay ciudades disponibles</option> : null}
+                    </select>
+                  </div>
+                  : null}
               </div>
               <div className='mb-4'>
                 <label htmlFor='user' className='block mb-2 text-sm font-medium text-gray-300'>Usuario</label>
                 <input
-                  value={form.user ? form.user : ''}
+                  value={form.user ?? ''}
                   type='text' id='user' onChange={(e) => {
                     setForm({ ...form, userReg: e.target.value })
                   }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='LRincon' required

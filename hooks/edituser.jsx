@@ -1,7 +1,9 @@
-import { useCallback, useState, useRef, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { toast } from 'react-hot-toast'
+import UseAddPost from '../hooks/addpost'
 
 export default function EditUser ({ user }) {
+  const { country, city } = UseAddPost()
   const [disabled, setDisabled] = useState(false)
   const [form, setForm] = useState({
     First_Name: '',
@@ -11,7 +13,10 @@ export default function EditUser ({ user }) {
     user: '',
     password: ''
   })
-  const postType = useRef('')
+
+  const locationFromUser = form.Location?.split(',')
+  const countryFromUser = locationFromUser ? locationFromUser[1] : ''
+  const cityFromUser = locationFromUser ? locationFromUser[0] : ''
 
   useEffect(() => {
     setForm(user)
@@ -39,7 +44,7 @@ export default function EditUser ({ user }) {
       const body = new FormData()
       body.append('First_Name', form.firstName)
       body.append('Last_Name', form.lastName)
-      body.append('Location', postType.current.value)
+      body.append('Location', `${country}, ${city}`)
       body.append('Date_Of_Birth', form.dateOfBirth)
       body.append('user', form.user)
       body.append('password', form.password)
@@ -61,5 +66,5 @@ export default function EditUser ({ user }) {
     }
   }
 
-  return { Edit, form, setForm, postType, disabled, setDisabled }
+  return { Edit, form, setForm, disabled, setDisabled, city, country, cityFromUser, countryFromUser }
 }
