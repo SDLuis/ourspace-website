@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { useCallback, useState, useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import UseAddPost from '../hooks/addpost'
@@ -19,7 +20,7 @@ export default function EditUser ({ user }) {
   const cityFromUser = locationFromUser ? locationFromUser[0] : ''
 
   useEffect(() => {
-    setForm(user)
+    user ? setForm(user) : null
   }, [user])
 
   const checkFilledFields = useCallback(() => {
