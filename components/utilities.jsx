@@ -13,6 +13,7 @@ export default function Utilities () {
   const { userFound, loading, logout } = UserLogged()
   const img = !userFound.img ? placeholder : userFound.img
 
+  if (!userFound) return
   return (
     <div className='w-[88px] 1xl:w-[270px] min-h-screen flex items-start rounded-md'>
       <div className='w-full border border-gray-700 min-h-[10rem] xl:min-h-[16rem] h-auto'>
