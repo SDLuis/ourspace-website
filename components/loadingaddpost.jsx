@@ -5,7 +5,7 @@ const LoadingAddPost = props => (
     <main className='min-h-screen w-full flex justify-center'>
       <div className='w-full sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center border-x border-solid sm:border-gray-700'>
         <ContentLoader
-          className='w-[90%] sm:w-[440px] xl:w-[430px]' backgroundColor='#333'
+          className='w-[90%] sm:w-[598px] xl:w-[598px]' backgroundColor='#333'
           foregroundColor='#999' viewBox='0 0 400 460' {...props}
         >
           <circle cx='47' cy='129' r='29' />
