@@ -13,7 +13,6 @@ export default function Utilities () {
   const { userFound, loading, logout } = UserLogged()
   const img = !userFound.img ? placeholder : userFound.img
 
-  if (!userFound) return
   return (
     <div className='w-[88px] 1xl:w-[270px] min-h-screen flex items-start rounded-md'>
       <div className='w-full border border-gray-700 min-h-[10rem] xl:min-h-[16rem] h-auto'>
@@ -35,9 +34,7 @@ export default function Utilities () {
                     </Link>
                   </div>
                   <div className='py-3'>
-                    <Link href='/user/edit'>
-                      <Edit />
-                    </Link>
+                    <Edit />
                   </div>
                 </div>
               </div>
@@ -64,9 +61,7 @@ export default function Utilities () {
               <Link href={`/user/${userFound.user}`}>
                 <Image width={48} height={48} className='rounded-full w-12 h-12 object-cover' src={img} alt='user' />
               </Link>
-              <Link href='/user/edit'>
-                <Edit />
-              </Link>
+              <Edit />
               <button onClick={() => logout()}>
                 <Logout />
               </button>
