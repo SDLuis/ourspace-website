@@ -16,8 +16,8 @@ export default function EditUser ({ user }) {
   })
 
   const locationFromUser = form.Location?.split(',')
-  const countryFromUser = locationFromUser ? locationFromUser[1] : ''
-  const cityFromUser = locationFromUser ? locationFromUser[0] : ''
+  const countryFromUser = locationFromUser ? locationFromUser[1] : 'anonimo'
+  const cityFromUser = locationFromUser ? locationFromUser[0] : 'anonimo'
 
   useEffect(() => {
     user ? setForm(user) : null
