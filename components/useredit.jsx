@@ -18,7 +18,7 @@ export default function UserEdit ({ user }) {
             <center>
               <h2 className='font-medium text-2xl text-gray-200'>Editar usuario</h2>
             </center>
-            <div className='w-10/12 flex justify-between gap-3'>
+            <div className='w-10/12 md:flex justify-between gap-3'>
               <div>
                 <div className='grid gap-6 w-full mb-4 grid-cols-2'>
                   <div>
