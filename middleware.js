@@ -16,6 +16,17 @@ export async function middleware (request) {
       return NextResponse.redirect(new URL('/', request.url))
     }
   }
+  if (request.nextUrl.pathname === '/post/add') {
+    if (cookie === undefined) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+    try {
+      await jwtVerify(cookie, secret)
+      return NextResponse.next()
+    } catch (err) {
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+  }
   if (request.nextUrl.pathname.includes('/login') || request.nextUrl.pathname === '/') {
     if (cookie === undefined) {
       return NextResponse.next()
