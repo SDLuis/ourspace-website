@@ -52,7 +52,6 @@ export default function UserEdit ({ user }) {
                   <div>
                     <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>País</label>
                     <select defaultValue={countryFromUser ?? 'anonimo'} onChange={(e) => setcountry(e.target.value)} className='bg-black cursor-pointer border w-32 md:w-44 border-sky-900 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5 mb-2'>
-                      <option value=''>anonimo</option>
                       <option value={countryFromUser ?? 'anonimo'}>{countryFromUser ?? 'anonimo'}</option>
                       {countries.length && countries.map((name) => (<option value={name} key={name}> {name}</option>))}
                     </select>
@@ -61,7 +60,6 @@ export default function UserEdit ({ user }) {
                     ? <div>
                       <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>Ciudad</label>
                       <select defaultValue={cityFromUser ?? 'anonimo'} ref={city} className='w-32 md:w-44 bg-black border border-sky-600 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
-                        <option value=''>anonimo</option>
                         <option value={cityFromUser ?? 'anonimo'}>{cityFromUser ?? 'anonimo'}</option>
                         {Cities.length !== 0 ? cities.length !== 0 ? cities.map(({ id, name }) => (<option key={id}>{name}</option>)) : <option value=''>No hay ciudades disponibles</option> : null}
                       </select>
@@ -90,7 +88,7 @@ export default function UserEdit ({ user }) {
                 </div>
                 <input className='w-[85%] sm:w-full' type='file' onChange={(e) => setForm({ ...form, img: e.target.files[0] })} />
                 {
-            form.img?.length !== 0 ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={form.img ? form.img : 'https://res.cloudinary.com/dw9esmd56/image/upload/v1670615286/fzyez3drwjrlsbqmqsb4.jpg'} alt='user img' /> </div> : null
+            form.img?.length !== 0 ? <div className='flex justify-center my-1'> <img className='w-[100px] h-[100px] rounded-full object-cover' src={form.img ?? 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'} alt='user img' /> </div> : null
           }
               </div>
             </div>
