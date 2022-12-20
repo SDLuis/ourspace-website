@@ -48,7 +48,7 @@ export default function EditUser ({ user, city, setcountry, country } = {}) {
       const body = new FormData()
       body.append('First_Name', form.First_Name)
       body.append('Last_Name', form.Last_Name)
-      body.append('Location', `${city.current?.value}, ${country.current?.value.trim()}`)
+      body.append('Location', `${city.current?.value}, ${country.trim()}`)
       body.append('Date_Of_Birth', form.Date_Of_Birth)
       body.append('user', form.user)
       body.append('password', form.password)
