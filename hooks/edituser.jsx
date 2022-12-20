@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-expressions */
+'use client'
 import { useCallback, useState, useEffect } from 'react'
+import { editUser } from '../services/user'
+import UserLogged from './userLogged'
 import { toast } from 'react-hot-toast'
-import UseAddPost from '../hooks/addpost'
-
-export default function EditUser ({ user }) {
-  const { country, city } = UseAddPost()
+export default function EditUser ({ user, city, setcountry, country } = {}) {
+  const { userFound } = UserLogged()
   const [disabled, setDisabled] = useState(false)
   const [form, setForm] = useState({
     First_Name: '',
@@ -21,6 +23,7 @@ export default function EditUser ({ user }) {
 
   useEffect(() => {
     user ? setForm(user) : null
+    setcountry(countryFromUser)
   }, [user])
 
   const checkFilledFields = useCallback(() => {
@@ -43,25 +46,25 @@ export default function EditUser ({ user }) {
     setTimeout(() => { setDisabled(false) }, 2000)
     if (checkFilledFields()) {
       const body = new FormData()
-      body.append('First_Name', form.firstName)
-      body.append('Last_Name', form.lastName)
-      body.append('Location', `${country}, ${city}`)
-      body.append('Date_Of_Birth', form.dateOfBirth)
+      body.append('First_Name', form.First_Name)
+      body.append('Last_Name', form.Last_Name)
+      body.append('Location', `${city.current?.value}, ${country.current?.value.trim()}`)
+      body.append('Date_Of_Birth', form.Date_Of_Birth)
       body.append('user', form.user)
       body.append('password', form.password)
       body.append('image', form.img)
       setDisabled(true)
-      return console.log(body)
-      /* .then((response) => {
+      return editUser(body, userFound.User_ID)
+        .then((response) => {
           if (response.message) {
-            toast.error('Este user no esta disponible. Por favor intente con otro.')
+            toast.error('No se puedo guardar tu información, intente más tarde.')
           } else {
-            toast.success('Registro exitoso, redirigiendo...')
+            toast.success('Tu configuración se ha guardado con éxito')
           }
         })
         .catch((err) => {
           toast.error(`${err}`)
-        }) */
+        })
     } else {
       toast.error('Rellene todos los campos')
     }

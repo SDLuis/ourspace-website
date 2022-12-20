@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable @next/next/no-img-element */
-'use client'
 import EditUser from '../hooks/edituser'
 import UseAddPost from '../hooks/addpost'
 import { countries } from '../fetch/countriesdata'
 
 export default function UserEdit ({ user }) {
-  const { form, setForm, disabled, countryFromUser, cityFromUser } = EditUser({ user })
-  const { setcountry, Cities, city } = UseAddPost()
+  const { setcountry, country, Cities, city } = UseAddPost()
+  const { form, setForm, disabled, countryFromUser, cityFromUser, Edit } = EditUser({ user, setcountry, country, city })
   const { cities } = Cities
 
   return (
@@ -25,7 +24,7 @@ export default function UserEdit ({ user }) {
                     <label htmlFor='first_name' className='block mb-2 text-sm font-medium text-gray-300'>Nombre</label>
                     <input
                       type='text' id='first_name' value={form.First_Name ?? ''} onChange={(e) => {
-                        setForm({ ...form, firstNameReg: e.target.value })
+                        setForm({ ...form, firstName: e.target.value })
                       }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Louis' required
                     />
                   </div>
@@ -34,7 +33,7 @@ export default function UserEdit ({ user }) {
                     <input
                       value={form.Last_Name ?? ''}
                       type='text' id='last_name' onChange={(e) => {
-                        setForm({ ...form, lastNameReg: e.target.value })
+                        setForm({ ...form, lastName: e.target.value })
                       }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='Rincon' required
                     />
                   </div>
@@ -42,10 +41,12 @@ export default function UserEdit ({ user }) {
                 <div className='mb-4'>
                   <label htmlFor='dateofbirth' className='block mb-2 text-sm font-medium text-gray-300'>Fecha de nacimiento</label>
                   <input
-                    value={user.Date_Of_Birth ?? ''}
-                    type='text' id='dateofbirth' onChange={(e) => {
-                      setForm({ ...form, userReg: e.target.value })
+                    value={form.Date_Of_Birth ?? ''}
+                    type='date' id='dateofbirth' onChange={(e) => {
+                      setForm({ ...form, Date_Of_Birth: e.target.value })
                     }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='10-10-1990' required
+                    min='1950-01-01'
+                    max='2003-12-31'
                   />
                 </div>
                 <div className='mb-4 flex justify-between'>
@@ -59,9 +60,8 @@ export default function UserEdit ({ user }) {
                   {countryFromUser
                     ? <div>
                       <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>Ciudad</label>
-                      <select defaultValue={cityFromUser ?? 'anonimo'} ref={city} className='w-32 md:w-44 bg-black border border-sky-600 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
-                        <option value={cityFromUser ?? 'anonimo'}>{cityFromUser ?? 'anonimo'}</option>
-                        {Cities.length !== 0 ? cities.length !== 0 ? cities.map(({ id, name }) => (<option key={id}>{name}</option>)) : <option value=''>No hay ciudades disponibles</option> : null}
+                      <select ref={city} className='w-32 md:w-44 bg-black border border-sky-600 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
+                        {Cities.length !== 0 ? cities.length !== 0 ? cities.map(({ id, name }) => (<option selected={cityFromUser === name} value={name} key={id}>{name}</option>)) : <option value=''>No hay ciudades disponibles</option> : null}
                       </select>
                     </div>
                     : null}
@@ -74,7 +74,7 @@ export default function UserEdit ({ user }) {
                   <input
                     value={form.user ?? ''}
                     type='text' id='user' onChange={(e) => {
-                      setForm({ ...form, userReg: e.target.value })
+                      setForm({ ...form, user: e.target.value })
                     }} className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='LRincon' required
                   />
                 </div>
@@ -82,7 +82,7 @@ export default function UserEdit ({ user }) {
                   <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-300'>Contraseña</label>
                   <input
                     type='password' onChange={(e) => {
-                      setForm({ ...form, passwordReg: e.target.value })
+                      setForm({ ...form, password: e.target.value })
                     }} id='password' className='border text-sm rounded-lg focus:ring-gray-500 block w-full p-2.5 bg-transparent border-gray-700 placeholder-gray-400 text-white' placeholder='•••••••••' required
                   />
                 </div>
@@ -95,8 +95,9 @@ export default function UserEdit ({ user }) {
             <div className='w-full flex justify-center'>
               <button
                 disabled={disabled}
+                onClick={(e) => Edit(e)}
                 className='Button mb-1 focus:outline-none disabled:bg-blue-500 bg-blue-800 py-2 text-gray-300 px-10 rounded-r-full rounded-l-full w-10/12'
-                type='submit'
+                // type='submit'
               >
                 Guardar configuración
               </button>
