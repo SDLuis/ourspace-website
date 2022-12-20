@@ -57,7 +57,7 @@ export default function UserEdit ({ user }) {
                       {countries.length && countries.map((name) => (<option value={name} key={name}> {name}</option>))}
                     </select>
                   </div>
-                  {countryFromUser
+                  {country && country !== 'anonimo'
                     ? <div>
                       <label htmlFor='location' className='block mb-2 text-sm font-medium text-gray-300'>Ciudad</label>
                       <select ref={city} className='w-32 md:w-44 bg-black border border-sky-600 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5'>
