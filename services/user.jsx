@@ -16,3 +16,15 @@ export const editUser = async (body, id) => {
       toast.error(`${err}`)
     })
 }
+
+export const editCoverUser = async (body, id) => {
+  return await axios
+    .put(
+      `${API_URL}/users/cover/${id}`, body, { withCredentials: true })
+    .then((res) => {
+      return res.data
+    })
+    .catch((err) => {
+      toast.error(`${err}`)
+    })
+}
