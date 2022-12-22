@@ -22,7 +22,7 @@ export default function Reaction (postID) {
 
   useEffect(() => {
     setLiked(UserLiked)
-    postID ? axios.get(`https://ourspace-api.up.railway.app/reactions/find/${postID}`).then((res) => { setReactions(res.data) }) : null
+    postID ? axios.get(`http://localhost:5000/reactions/find/${postID}`).then((res) => { setReactions(res.data) }) : null
   }, [postID, UserLiked])
 
   const AddReaction = (PostID) => {
@@ -34,11 +34,11 @@ export default function Reaction (postID) {
           User_ID: userFound.User_ID
         }
         setLiked(true)
-        axios.post('https://ourspace-api.up.railway.app/reactions/add', body, { withCredentials: true }).then(() => {
+        axios.post('http://localhost:5000/reactions/add', body, { withCredentials: true }).then(() => {
           setReactions([...reactions, { ...body }])
         })
       } else {
-        axios.delete(`https://ourspace-api.up.railway.app/reactions/delete/${ID}`, { withCredentials: true }).then(() => {
+        axios.delete(`http://localhost:5000/reactions/delete/${ID}`, { withCredentials: true }).then(() => {
           const newReactionsObject = reactions.filter((reaction) => reaction.Reaction_ID !== reactions[0].Reaction_ID)
           setReactions(newReactionsObject)
         })

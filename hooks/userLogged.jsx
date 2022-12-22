@@ -11,7 +11,7 @@ export default function UserLogged () {
   useEffect(() => {
     setLoading(true)
     userLogged().then((user) => {
-      user ? axios.get(`https://ourspace-api.up.railway.app/users/find/${user.user}`).then(({ data }) => setUserLogged(data)).finally(setLoading(false)) : null
+      user ? axios.get(`http://localhost:5000/users/find/${user.user}`).then(({ data }) => setUserLogged(data)).finally(setLoading(false)) : null
     })
   }, [])
 

@@ -3,7 +3,7 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
-const API_URL = 'https://ourspace-api.up.railway.app'
+const API_URL = 'http://localhost:5000'
 
 export const editUser = async (body, id) => {
   return await axios

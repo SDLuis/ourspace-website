@@ -13,7 +13,7 @@ export default function UseAddComment ({ PostID }) {
         Post_ID: PostID,
         description: comment.current.value
       }
-      axios.post('https://ourspace-api.up.railway.app/comments/add', body, { withCredentials: true })
+      axios.post('http://localhost:5000/comments/add', body, { withCredentials: true })
         .then(() => {
           toast.success('Se ha añadido tu comentario!')
           window.location.href = `/post/${PostID}/comments`

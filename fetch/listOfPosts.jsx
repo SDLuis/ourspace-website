@@ -1,5 +1,5 @@
 import ListOfPosts from '../components/listOfPost'
-const host = 'https://ourspace-api.up.railway.app'
+const host = 'http://localhost:5000'
 
 const fetchPosts = () => {
   return fetch(`${host}/posts`, { cache: 'no-store' }).then(res => res.json())
