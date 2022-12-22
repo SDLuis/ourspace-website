@@ -11,7 +11,6 @@ export default function EditCoverUser ({ user } = {}) {
 
   useEffect(() => {
     user ? setCover(user.cover) : null
-    console.log(user)
   }, [user])
 
   const checkFilledFields = useCallback(() => {
