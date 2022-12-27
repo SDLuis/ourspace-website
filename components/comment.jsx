@@ -1,6 +1,6 @@
 'use client'
 
-import UseAddComment from '../hooks/addcomment'
+import UseAddComment from '../hooks/useAddComment'
 import { Send } from './icons'
 
 export default function Comment ({ PostID }) {

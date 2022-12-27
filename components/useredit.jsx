@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
-import EditUser from '../hooks/edituser'
-import UseAddPost from '../hooks/addpost'
+import EditUser from '../hooks/useEditUser'
+import UseAddPost from '../hooks/useAddPost'
 import { countries } from '../fetch/countriesdata'
 
 export default function UserEdit ({ user }) {

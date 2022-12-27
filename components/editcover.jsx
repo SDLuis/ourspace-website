@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 import Link from 'next/link'
-import EditCoverUser from '../hooks/editcoveruser'
+import EditCoverUser from '../hooks/useEditCoverUser'
 import { Back } from './icons'
 import placeholderCover from '../public/placeholder-portada.webp'
 

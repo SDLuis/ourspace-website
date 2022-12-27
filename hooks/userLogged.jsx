@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import UseUser from './login'
+import UseUser from './useLogin'
 
 export default function UserLogged () {
   const [userFound, setUserLogged] = useState('')

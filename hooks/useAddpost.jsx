@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
-import UseUser from './login'
+import UseUser from './useLogin'
 
 export default function UseAddPost () {
   const { userLogged } = UseUser()

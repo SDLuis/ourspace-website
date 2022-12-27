@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react'
 import Link from 'next/link'
-import UseRegister from '../../hooks/register'
+import UseRegister from '../../hooks/useRegister'
 
 export default function RegisterComponent () {
   const { Register, isRegister, form, setForm, disabled } = UseRegister()
