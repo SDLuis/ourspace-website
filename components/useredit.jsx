@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 import EditUser from '../hooks/useEditUser'
-import UseAddPost from '../hooks/useAddPost'
+import UseAddPost from '../hooks/useAddpost'
 import { countries } from '../fetch/countriesdata'
 
 export default function UserEdit ({ user }) {
