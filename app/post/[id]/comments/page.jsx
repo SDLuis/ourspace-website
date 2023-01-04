@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default async function Post ({ params }) {
   const { id } = params
-  const host = 'http://localhost:5000'
+  const host = 'https://ourspace-api.up.railway.app'
 
   async function fetchComments () {
     return await axios.get(`${host}/comments/find/${id}`, { next: { revalidate: 10 } })

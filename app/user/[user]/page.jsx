@@ -3,7 +3,7 @@ import User from '../../../components/user'
 
 export default async function UserPage ({ params }) {
   const { user } = params
-  const host = 'http://localhost:5000'
+  const host = 'https://ourspace-api.up.railway.app'
 
   async function findUser () {
     return await axios.get(`${host}/users/find/${user}`, { next: { revalidate: 10 } })

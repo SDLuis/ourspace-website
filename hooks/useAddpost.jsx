@@ -45,7 +45,7 @@ export default function UseAddPost () {
       body.append('Location', Location())
       body.append('description', description.current.value)
       body.append('image', postImg)
-      return await axios.post('http://localhost:5000/posts/add', body, { withCredentials: true })
+      return await axios.post('https://ourspace-api.up.railway.app/posts/add', body, { withCredentials: true })
         .then(() => {
           toast.success('Se ha añadido tu post!')
           window.location.href = '/'
