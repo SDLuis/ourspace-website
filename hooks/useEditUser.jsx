@@ -14,7 +14,8 @@ export default function EditUser ({ user, city, setcountry, country } = {}) {
     Location: '',
     Date_Of_Birth: '',
     user: '',
-    password: ''
+    password: '',
+    img: null
   })
 
   const locationFromUser = form.Location?.split(',')

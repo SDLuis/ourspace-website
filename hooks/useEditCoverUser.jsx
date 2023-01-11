@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast'
 
 export default function EditCoverUser ({ user } = {}) {
   const [disabled, setDisabled] = useState(false)
-  const [cover, setCover] = useState()
+  const [cover, setCover] = useState(null)
 
   useEffect(() => {
     user ? setCover(user.cover) : null
