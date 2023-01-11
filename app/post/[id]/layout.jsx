@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Comment from '../../../components/comment'
 import LikeButtonComponent from '../../../components/like'
+import PostDate from '../../../components/postdate'
 import { Back } from '../../../components/icons'
 import UserImg from '../../../components/userimg'
 import Image from 'next/image'
@@ -41,8 +42,9 @@ export default async function Post ({ params, children }) {
                 ? <Image width={400} height={500} className='object-cover rounded-xl w-full h-auto' src={post.img} alt='post image' />
                 : null}
               <div>
-                <div className='flex gap-3'>
+                <div className={`${post.img ? 'pt-4' : ''} flex justify-between w-[92%] gap-3`}>
                   <LikeButtonComponent post={post} />
+                  <PostDate date={post.createdAt} />
                 </div>
               </div>
               <div className='pt-3 flex flex-col gap-3'>

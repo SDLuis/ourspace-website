@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Comment from '../components/comment'
 import LikeButtonComponent from '../components/like'
+import PostDate from '../components/postdate'
 import UserImg from './userimg'
 import UserOnPost from './useronpost'
 import { Delete } from './icons'
@@ -26,7 +27,10 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
             : null}
         </Link>
         <div>
-          <LikeButtonComponent post={post} />
+          <div className={`${post.img ? 'pt-4' : ''} flex justify-between w-[92%]`}>
+            <LikeButtonComponent post={post} />
+            <PostDate date={post.createdAt} />
+          </div>
           <div className='pt-3 flex flex-col gap-3'>
             <Comment PostID={post.Post_ID} />
             {

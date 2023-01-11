@@ -7,7 +7,7 @@ export default function LikeButtonComponent ({ post }) {
   const { reactions, AddReaction, liked } = useReaction(post.Post_ID)
 
   return (
-    <div className={`${post.img ? 'pt-4' : ''} flex gap-3`}>
+    <div className='flex gap-3'>
       <button onClick={() => { AddReaction(post.Post_ID) }}>
         <Like like={liked} />
       </button>
