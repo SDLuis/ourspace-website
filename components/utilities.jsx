@@ -30,7 +30,7 @@ export default function Utilities () {
                   <div className='py-1 h-14 sm:h-16'>
                     <Link href={`/user/${userFound.user}`}>
                       <p className='font-medium text-lg'>{userFound.First_Name + ' ' + userFound.Last_Name}</p>
-                      <p className='text-sm'>@{userFound.user}</p>
+                      <p className='text-sm opacity-60'>@{userFound.user}</p>
                     </Link>
                   </div>
                   <div className='py-3'>
