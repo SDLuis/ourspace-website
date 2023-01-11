@@ -8,11 +8,13 @@ import ListOfOwnPosts from './listOfOwnPosts'
 import UserInfo from './userinfo'
 import { useState } from 'react'
 import UserLogged from '../hooks/userLogged'
+import UseFollower from '../hooks/useFollow'
 import placeholder from '../public/placeholder-user.jpg'
 import placeholderCover from '../public/placeholder-portada.webp'
 
 export default function User ({ foundUser, foundPosts }) {
   const { userFound } = UserLogged()
+  const { AddFollow, follow } = UseFollower(userFound.User_ID)
   const [page, setPage] = useState('posts')
   const img = !foundUser.img ? placeholder : foundUser.img
   const cover = !foundUser.cover ? placeholderCover : foundUser.cover
@@ -34,8 +36,8 @@ export default function User ({ foundUser, foundPosts }) {
           <div hidden={OwnerProfile(foundUser)} className='absolute top-1.5 right-1.5 p-2 rounded-full bg-gray-900/80 hover:bg-gray-900/60 transition-all ease-in-out duration-300'><Link href='/user/editcover'><EditCover /></Link></div>
           <div className='w-32 h-32 sm:w-[10.7rem] sm:h-[10.7rem] bg-black flex justify-center items-center rounded-full absolute -bottom-16 sm:-bottom-20 left-0 right-0 m-auto'><Image placeholder={placeholder} width={160} height={160} className='w-28 h-28 sm:w-40 sm:h-40 rounded-full object-cover' alt='userphoto' src={img} /></div>
           <div className='flex justify-between w-[90%] sm:w-[95%] absolute -bottom-[52px] left-0 right-0 m-auto'>
-            <button className='sm:w-48 px-5 sm:px-0 py-2 rounded-md bg-slate-800 text-gray-200'>Seguir</button>
-            <button className='sm:w-48 px-5 sm:px-0 py-2 rounded-md bg-sky-900 text-gray-200'>Mensaje</button>
+            <button className='sm:w-48 px-5 sm:px-0 py-2 rounded-md bg-slate-800 text-gray-200' hidden={foundUser.User_ID === userFound.User_ID} onClick={() => AddFollow(foundUser.User_ID)}> {follow ? 'Dejar de Seguir' : 'Seguir'}</button>
+            <button className='sm:w-48 px-5 sm:px-0 py-2 rounded-md bg-sky-900 text-gray-200' hidden={foundUser.User_ID === userFound.User_ID}>Mensaje</button>
           </div>
         </div>
         <div className='mt-[68px] sm:mt-[84px]'>
