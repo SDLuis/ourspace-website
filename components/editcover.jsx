@@ -22,9 +22,9 @@ export default function EditCover ({ user }) {
             <div className='flex flex-col items-center'>
               <input className='w-[95vw] sm:w-full' type='file' onChange={(e) => setCover(e.target.files[0])} />
               {
-             typeof cover !== 'object'
-               ? <Image width={596} height={280} className='w-[95vw] sm:w-[596px] my-2 h-full sm:h-[280px] object-cover' src={imgCover} alt='user img' />
-               : <Image width={596} height={280} className='w-[95vw] sm:w-[596px] my-2 h-full sm:h-[280px] object-cover' src={URL.createObjectURL(cover)} alt='user img' />
+              cover === null
+                ? <Image width={596} height={280} className='w-[95vw] sm:w-[596px] my-2 h-full sm:h-[280px] object-cover' src={imgCover} alt='user img' />
+                : typeof cover === 'object' ? <Image width={596} height={280} className='w-[95vw] sm:w-[596px] my-2 h-full sm:h-[280px] object-cover' src={URL.createObjectURL(cover)} alt='user img' /> : <Image width={596} height={280} className='w-[95vw] sm:w-[596px] my-2 h-full sm:h-[280px] object-cover' src={cover} alt='user img' />
           }
             </div>
           </div>

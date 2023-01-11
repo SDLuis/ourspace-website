@@ -89,9 +89,9 @@ export default function UserEdit ({ user }) {
                 </div>
                 <input className='w-[85%] sm:w-full' type='file' onChange={(e) => setForm({ ...form, img: e.target.files[0] })} />
                 {
-              typeof form.img !== 'object'
-                ? <div className='flex justify-center my-1'><Image width={596} height={280} className='w-[100px] h-[100px] rounded-full object-cover' src={form.img ?? 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'} alt='user img' /></div>
-                : <div className='flex justify-center my-1'><Image width={596} height={280} className='w-[100px] h-[100px] rounded-full object-cover' src={URL.createObjectURL(form.img)} alt='user img' /></div>
+               form.img === null
+                 ? <div className='flex justify-center my-1'><Image width={596} height={280} className='w-[100px] h-[100px] rounded-full object-cover' src={form.img ?? 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'} alt='user img' /></div>
+                 : typeof form.img === 'object' ? <div className='flex justify-center my-1'><Image width={596} height={280} className='w-[100px] h-[100px] rounded-full object-cover' src={URL.createObjectURL(form.img)} alt='user img' /></div> : <div className='flex justify-center my-1'><Image width={596} height={280} className='w-[100px] h-[100px] rounded-full object-cover' src={form.img} alt='user img' /></div>
                 }
               </div>
             </div>
