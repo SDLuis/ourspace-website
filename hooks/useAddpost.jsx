@@ -19,7 +19,7 @@ export default function UseAddPost () {
   const [disabled, setDisabled] = useState(false)
   useEffect(() => {
     userLogged().then(data => setUser(data))
-    country && country !== 'anonimo'
+    country && country.trim() !== 'anonimo'
       ? axios.get(`https://country-api.up.railway.app/country/${country.trim()}`).then(({ data }) => { setCities(data) })
       : null
   }, [country, disabled])
