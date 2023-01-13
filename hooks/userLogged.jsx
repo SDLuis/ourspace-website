@@ -6,10 +6,9 @@ import UseUser from './useLogin'
 
 export default function UserLogged () {
   const [userFound, setUserLogged] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const { userLogged, logout } = UseUser()
   useEffect(() => {
-    setLoading(true)
     userLogged().then((user) => {
       user ? axios.get(`https://ourspace-api.up.railway.app/users/find/${user.user}`).then(({ data }) => setUserLogged(data)).finally(setLoading(false)) : null
     })
