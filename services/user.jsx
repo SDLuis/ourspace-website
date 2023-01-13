@@ -5,6 +5,18 @@ import toast from 'react-hot-toast'
 
 const API_URL = 'https://ourspace-api.up.railway.app'
 
+export const getUser = async () => {
+  return await axios
+    .get(
+      `${API_URL}/users`)
+    .then((res) => {
+      return res.data
+    })
+    .catch((err) => {
+      toast.error(`${err}`)
+    })
+}
+
 export const editUser = async (body, id) => {
   return await axios
     .put(
