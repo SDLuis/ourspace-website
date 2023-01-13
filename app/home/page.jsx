@@ -1,7 +1,7 @@
 import Utilities from '../../components/utilities'
-import LastUsers from '../../fetch/lastusers'
 import AddPost from '../../fetch/country'
 import RenderPosts from '../../fetch/listOfPosts'
+import Suggeration from '../../components/suggestion'
 
 export default function Home () {
   return (
@@ -15,7 +15,7 @@ export default function Home () {
           <RenderPosts />
         </div>
         <div className='hidden lg:flex justify-center w-[270px] xlg:w-[375px] py-3'>
-          <LastUsers />
+          <Suggeration />
         </div>
       </main>
       <footer className='flex w-full py-8 justify-center items-center border-t border-gray-700'>
