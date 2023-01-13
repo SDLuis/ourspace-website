@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import placeholder from '../public/placeholder-user.jpg'
 
 export default function NewUser ({ user = [] } = {}) {
   return (
-    <div className='w-full flex justify-between'>
+    <div className='w-full flex justify-between items-center'>
       <div className='flex gap-4 items-center'>
         <Image className='w-12 h-12 rounded-full object-cover' src={user.img ?? placeholder} alt='userimg' width={64} height={64} />
         <div className='flex flex-col'>
@@ -12,7 +13,7 @@ export default function NewUser ({ user = [] } = {}) {
         </div>
       </div>
       <div>
-        <button className='py-2 px-4 bg-[#ebeff0] rounded-l-full rounded-r-full text-black font-medium'>Seguir</button>
+        <Link className='py-2 px-4 bg-[#ebeff0] rounded-l-full rounded-r-full text-black font-medium' href={`user/${user.user}`}>Ver Perfil</Link>
       </div>
     </div>
   )
