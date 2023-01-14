@@ -2,6 +2,7 @@ import Utilities from '../../components/utilities'
 import AddPost from '../../fetch/country'
 import RenderPosts from '../../fetch/listOfPosts'
 import Suggeration from '../../components/suggestion'
+import SearchBar from '../../components/searchbar'
 
 export default function Home () {
   return (
@@ -14,7 +15,8 @@ export default function Home () {
           <AddPost />
           <RenderPosts />
         </div>
-        <div className='hidden lg:flex justify-center w-[270px] xlg:w-[375px] py-3'>
+        <div className='hidden lg:flex lg:flex-col gap-3 items-center w-[270px] xlg:w-[375px] py-3'>
+          <SearchBar />
           <Suggeration />
         </div>
       </main>
