@@ -17,6 +17,30 @@ export const getUser = async () => {
     })
 }
 
+export const findUser = async (user) => {
+  return await axios
+    .get(
+      `${API_URL}/users/find/${user}`)
+    .then((res) => {
+      return res.data
+    })
+    .catch((err) => {
+      toast.error(`${err}`)
+    })
+}
+
+export const findUsers = async (user) => {
+  return await axios
+    .get(
+      `${API_URL}/users/search/${user}`)
+    .then((res) => {
+      return res.data
+    })
+    .catch((err) => {
+      toast.error(`${err}`)
+    })
+}
+
 export const editUser = async (body, id) => {
   return await axios
     .put(
