@@ -13,7 +13,7 @@ export default function NewUser ({ user = [] } = {}) {
         </div>
       </div>
       <div>
-        <Link className='py-2 px-4 bg-[#ebeff0] rounded-l-full rounded-r-full text-black font-medium' href={`user/${user.user}`}>Ver Perfil</Link>
+        <Link className='py-2 px-4 bg-[#ebeff0] rounded-l-full rounded-r-full text-black font-medium' href={`user/${user.user}`}>Perfil</Link>
       </div>
     </div>
   )
