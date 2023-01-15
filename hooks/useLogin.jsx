@@ -29,7 +29,7 @@ export default function UseUser () {
             toast.error(`${res.message}.`)
           } else if (res.data) {
             setJWT(res.data)
-            Cookies.set('ourspace', `${res.data}`, { expires: 1 / 24 })
+            Cookies.set('ourspace', `${res.data}`, { expires: 6 / 24 })
             toast.success('Se ha logeado exitosamente.')
           }
         })
