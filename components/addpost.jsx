@@ -29,7 +29,7 @@ export default function Addpost ({ countries = [] }) {
           </div>
           <TextareaAutosize
             className='w-full min-h-[80px] rounded-md p-2 max-h-[25rem] outline-none border-none leading-6 text-gray-200 text-base sm:text-lg bg-transparent resize-none'
-            ref={description} placeholder='Mi@. Fluya!'
+            ref={description} placeholder='¿Qué estás pensando?'
           />
           {postImg.length !== 0
             ? <div className='relative'><Image className='w-full h-auto object-cover mb-3 rounded-md' src={URL.createObjectURL(postImg)} width={300} height={300} alt='' /> <div className='grid place-items-center absolute top-1 left-1 rounded-full bg-gray-900/80  hover:bg-gray-900/60 transition-all ease-in-out duration-300 p-1'><button onClick={() => removingImg()}> <Delete /> </button> </div></div>
