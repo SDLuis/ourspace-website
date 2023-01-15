@@ -14,7 +14,7 @@ export default function UseSearchUser () {
       ? findUsers(inputValue.current.value).then((res) => {
         setUsers(res)
       })
-      : null
+      : setUsers([])
   }
   return { FindUsers, users, inputValue }
 }
