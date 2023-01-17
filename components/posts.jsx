@@ -4,9 +4,9 @@ import Image from 'next/image'
 import Comment from '../components/comment'
 import LikeButtonComponent from '../components/like'
 import PostDate from '../components/postdate'
+import MenuOptions from './menuoptions'
 import UserImg from './userimg'
 import UserOnPost from './useronpost'
-import { Delete } from './icons'
 
 export default function Posts ({ posts, userLogged = '', removePost = null }) {
   const OwnerPost = (userModel) => {
@@ -39,7 +39,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
           </div>
         </div>
       </div>
-      <div hidden={OwnerPost(post.userModel)} onClick={() => removePost(post.Post_ID)} className='text-gray-200 absolute top-2 right-3 p-1.5 hover:bg-gray-900 transition-all ease-in-out rounded-full duration-200'><Delete /></div>
+      <MenuOptions OwnerPost={OwnerPost} post={post} removePost={removePost} />
     </div>
   ))
 }
