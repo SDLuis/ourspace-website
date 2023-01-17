@@ -4,6 +4,8 @@ import { Login } from '../services/auth'
 import { toast } from 'react-hot-toast'
 import { authContext } from '../context/auth'
 import { jwtVerify } from 'jose'
+import { confirmAlert } from 'react-confirm-alert'
+import '../styles/reactConfirmAlert.css'
 
 export default function UseUser () {
   const { jwt, setJWT } = useContext(authContext)
@@ -42,13 +44,38 @@ export default function UseUser () {
   }
 
   const logout = useCallback(() => {
-    Cookies.remove('ourspace')
-    setJWT(null)
-    toast('Nos vemos pronto', {
-      icon: '👋',
-      duration: 1000
-    })
-    window.location.href = '/'
+    const options = {
+      title: 'Cerrar sesión',
+      message: '¿Quiere cerrar sesión?',
+      buttons: [
+        {
+          label: 'Salir',
+          onClick: () => {
+            Cookies.remove('ourspace')
+            setJWT(null)
+            toast('Nos vemos pronto', {
+              icon: '👋',
+              duration: 1000
+            })
+            window.location.href = '/'
+          }
+        },
+        {
+          label: 'No',
+          onClick: () => {}
+        }
+      ],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+      keyCodeForClose: [8, 32],
+      willUnmount: () => {},
+      afterClose: () => {},
+      onClickOutside: () => {},
+      onKeypress: () => {},
+      onKeypressEscape: () => {},
+      overlayClassName: 'overlay-custom-class-name'
+    }
+    confirmAlert(options)
   }, [setJWT])
 
   const userLogged = async () => {
