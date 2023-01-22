@@ -20,7 +20,9 @@ export default function Navbar () {
       <div className='flex items-center gap-6'>
         <div className='hidden sm:flex items-center gap-6'>
           <Home />
-          <Message />
+          <Link href='/conversation'>
+            <Message />
+          </Link>
           <Link href='/post/add'>
             <Add />
           </Link>
@@ -38,7 +40,7 @@ export default function Navbar () {
                   <Link href={`/user/${userFound.user}`} className='block py-2 px-4  hover:bg-gray-600 hover:text-white'>Perfil</Link>
                 </li>
                 <li onClick={() => setUserMenu(!userMenu)}>
-                  <Link href='#' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Configuración</Link>
+                  <Link href='/user/edit' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Configuración</Link>
                 </li>
                 <li onClick={() => setUserMenu(!userMenu)}>
                   <Link href='#' className='block py-2 px-4 hover:bg-gray-600 hover:text-white'>Earnings</Link>
