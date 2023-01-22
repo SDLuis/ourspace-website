@@ -15,7 +15,7 @@ export default function ListOfConversations () {
   }, [userFound])
 
   return (
-    <div className='w-screen h-screen px-20 pt-10 flex flex-col gap-4'>
+    <div className='w-screen px-20 pt-10 flex flex-col gap-4'>
       {conversations?.map((conversation) => (
         <Conversation key={conversation.Conversation_ID} conversation={conversation} />
       ))}
