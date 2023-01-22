@@ -1,0 +1,23 @@
+/* eslint-disable no-unused-expressions */
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import UserLogged from './userLogged'
+
+export default function Conversation ({ conversation = null } = {}) {
+  const [friend, setFriend] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  const { userFound } = UserLogged()
+
+  useEffect(() => {
+    const friendId = userFound ? conversation?.members?.find((m) => m !== userFound?.User_ID) : null
+
+    friendId
+      ? axios.get(`https://ourspace-api.up.railway.app/users/${friendId}`).then(({ data }) => setFriend(data))
+      : null
+    friend ? setLoading(false) : null
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userFound])
+
+  return { friend, loading }
+}
