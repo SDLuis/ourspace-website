@@ -3,7 +3,7 @@ import User from '../../../components/user'
 
 export default async function UserPage ({ params }) {
   const { user } = params
-  const host = 'https://ourspace-api.up.railway.app'
+  const host = 'https://ourspace-api-hw4y.onrender.com'
 
   async function findUser () {
     return await axios.get(`${host}/users/find/${user}`, { next: { revalidate: 10 } })

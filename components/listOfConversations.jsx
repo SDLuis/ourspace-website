@@ -11,7 +11,7 @@ export default function ListOfConversations () {
   const [conversations, setConversations] = useState([])
 
   useEffect(() => {
-    userFound ? axios.get('https://ourspace-api.up.railway.app/conversations/owner', { withCredentials: true }).then(({ data }) => setConversations(data)) : null
+    userFound ? axios.get('https://ourspace-api-hw4y.onrender.com/conversations/owner', { withCredentials: true }).then(({ data }) => setConversations(data)) : null
   }, [userFound])
 
   return (

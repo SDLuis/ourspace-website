@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const host = 'https://ourspace-api.up.railway.app'
+const host = 'https://ourspace-api-hw4y.onrender.com'
 
 export default function getPosts ({
   limit = 6,

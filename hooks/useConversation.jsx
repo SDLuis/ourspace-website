@@ -12,7 +12,7 @@ export default function Conversation ({ conversation = null } = {}) {
   useEffect(() => {
     const friendId = userFound ? conversation?.members?.find((m) => m !== userFound?.User_ID) : null
     friendId
-      ? axios.get(`https://ourspace-api.up.railway.app/users/${friendId}`).then(({ data }) => setFriend(data))
+      ? axios.get(`https://ourspace-api-hw4y.onrender.com/users/${friendId}`).then(({ data }) => setFriend(data))
       : null
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userFound])

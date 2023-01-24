@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default async function Post ({ params, children }) {
   const { id } = params
-  const host = 'https://ourspace-api.up.railway.app'
+  const host = 'https://ourspace-api-hw4y.onrender.com'
 
   async function findPost () {
     return await fetch(`${host}/posts/${id}`, { cache: 'no-store' }).then(res => res.json())
