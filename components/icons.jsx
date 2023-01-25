@@ -62,3 +62,7 @@ export const Search = () => {
 export const MoreOptions = () => {
   return <svg className='w-10 h-10' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='none'><path stroke='#fff' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 12h.01M8 12h.01M16 12h.01' /></svg>
 }
+
+export const AddConversation = () => {
+  return <svg className='w-12 h-12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM8 12h8m-4 4V8' stroke='#F2F2F2' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' /></svg>
+}
