@@ -1,21 +1,15 @@
 /* eslint-disable no-unused-expressions */
 'use client'
 
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import Conversation from './conversation'
-import UserLogged from '../hooks/userLogged'
 import Message from './message'
 import { AddConversation } from './icons'
+import useMessage from '../hooks/useMessage'
 
 export default function ListOfConversations () {
-  const { userFound } = UserLogged()
-  const [conversations, setConversations] = useState([])
   const [currentConversation, setCurrentConversation] = useState([])
-
-  useEffect(() => {
-    userFound ? axios.get('https://ourspace-api-hw4y.onrender.com/conversations/owner', { withCredentials: true }).then(({ data }) => setConversations(data)) : null
-  }, [userFound])
+  const { conversations } = useMessage()
 
   return (
     <div className='grid h-[90vh] place-items-center'>
