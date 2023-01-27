@@ -1,4 +1,3 @@
-import axios from 'axios'
 import User from '../../../components/user'
 
 export default async function UserPage ({ params }) {
@@ -6,14 +5,14 @@ export default async function UserPage ({ params }) {
   const host = 'https://ourspace-api-hw4y.onrender.com'
 
   async function findUser () {
-    return await axios.get(`${host}/users/find/${user}`, { next: { revalidate: 10 } })
+    return await fetch(`${host}/users/find/maria`).then(res => res.json())
   }
   async function findPosts () {
-    return await axios.get(`${host}/posts/user/${user}`, { next: { revalidate: 10 } })
+    return await fetch(`${host}/posts/user/maria`).then(res => res.json())
   }
 
-  const foundUser = await (await findUser()).data
-  const foundPosts = await (await findPosts(user)).data
+  const foundUser = await (await findUser())
+  const foundPosts = await (await findPosts(user))
 
   return (
     <User foundPosts={foundPosts} foundUser={foundUser} />
