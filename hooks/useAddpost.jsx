@@ -20,7 +20,7 @@ export default function UseAddPost () {
   useEffect(() => {
     userLogged().then(data => setUser(data))
     country && country.trim() !== 'anonimo'
-      ? axios.get(`https://country-api.up.railway.app/country/${country.trim()}`).then(({ data }) => { setCities(data) })
+      ? axios.get(`https://country-api-cq2y.onrender.com/country/${country.trim()}`).then(({ data }) => { setCities(data) })
       : null
   }, [country, disabled])
 
