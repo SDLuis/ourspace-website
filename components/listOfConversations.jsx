@@ -13,7 +13,7 @@ export default function ListOfConversations () {
 
   return (
     <div className='grid h-[90vh] place-items-center'>
-      <div className='w-[80vw] h-[80%] rounded-md p-4 bg-[#121212] flex gap-5 '>
+      <div className='w-[80vw] h-[80vh] rounded-md p-4 bg-[#121212] flex gap-5 '>
         <div className='flex min-w-[15rem] flex-col gap-3'>
           <div className='h-16 w-60 rounded-lg bg-black/10 p-3 cursor-pointer flex items-center justify-center border border-solid border-gray-700'>
             <AddConversation />
@@ -24,8 +24,8 @@ export default function ListOfConversations () {
             </div>
           ))}
         </div>
-        <div className='flex-1'>
-          <Message ConversationID={currentConversation?.Conversation_ID} />
+        <div className='flex-1 h-full'>
+          <Message currentConversation={currentConversation} />
         </div>
       </div>
     </div>
