@@ -11,7 +11,7 @@ export default async function Post ({ params, children }) {
   const host = 'https://ourspace-api-hw4y.onrender.com'
 
   async function findPost () {
-    return await fetch(`${host}/posts/${id}`, { cache: 'no-store' }).then(res => res.json())
+    return fetch(`${host}/posts/${id}`, { cache: 'no-store' }).then(res => res.json())
   }
 
   const post = await (await findPost())

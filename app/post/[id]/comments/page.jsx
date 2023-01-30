@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -7,10 +6,10 @@ export default async function Post ({ params }) {
   const host = 'https://ourspace-api-hw4y.onrender.com'
 
   async function fetchComments () {
-    return await axios.get(`${host}/comments/find/${id}`, { next: { revalidate: 10 } })
+    return fetch(`${host}/comments/find/${id}`, { next: { revalidate: 10 } }).then(res => res.json())
   }
 
-  const comments = await (await fetchComments()).data
+  const comments = await (await fetchComments())
 
   return (
     comments.map((comment) => (
