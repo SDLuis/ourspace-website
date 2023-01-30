@@ -5,7 +5,6 @@ import UserLogged from './userLogged'
 import { io } from 'socket.io-client'
 
 export default function useMessage ({ currentConversation = null } = {}) {
-  const PORT = process.env.PORT || 5000
   const { userFound } = UserLogged()
   const scrollRef = useRef()
   const [messages, setMessages] = useState([])
@@ -30,7 +29,7 @@ export default function useMessage ({ currentConversation = null } = {}) {
   }, [messages])
 
   useEffect(() => {
-    socket.current = io(`ws://localhost:${PORT}`)
+    socket.current = io('https://ourspace-api-hw4y.onrender.com')
     userFound ? socket.current.emit('addUser', userFound?.User_ID) : null
     socket.current.on('getMessage', (data) => {
       setArrivalMessage({
