@@ -1,9 +1,9 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-unused-expressions */
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import UserLogged from './userLogged'
 import { toast } from 'react-hot-toast'
+import { addFollow, removeFollow, ownFollows } from '../services/follower'
 
 export default function Follower (UserID) {
   let ID
@@ -23,7 +23,7 @@ export default function Follower (UserID) {
 
   useEffect(() => {
     setFollow(UserFollow)
-    UserID ? axios.get('https://ourspace-api-hw4y.onrender.com/followers/owner', { withCredentials: true }).then((res) => { setFollowers(res.data) }) : null
+    UserID ? ownFollows().then(({ data }) => { setFollowers(data) }) : null
   }, [UserID, UserFollow])
 
   const AddFollow = (UserID) => {
@@ -33,12 +33,12 @@ export default function Follower (UserID) {
           User_ID: UserID
         }
         setFollow(true)
-        axios.post('https://ourspace-api-hw4y.onrender.com/followers/add', body, { withCredentials: true }).then(({ data }) => {
+        addFollow(body).then(() => {
           setFollowers([...followers, { ...body }])
           toast.success('Empezaste a seguir a este usuario')
         })
       } else {
-        axios.delete(`https://ourspace-api-hw4y.onrender.com/followers/delete/${ID}`, { withCredentials: true }).then(({ data }) => {
+        removeFollow(ID).then(({ data }) => {
           const newFollowerObject = followers.filter((follower) => follower.Follower_ID !== followers[0].Follower_ID)
           setFollowers(newFollowerObject)
           toast.success(data)

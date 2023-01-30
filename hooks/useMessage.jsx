@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import { useState, useEffect, useRef } from 'react'
-import axios from 'axios'
 import UserLogged from './userLogged'
 import { io } from 'socket.io-client'
+import { getMessageByConversation, sendMessages } from '../services/message'
+import { getOwnConversation } from '../services/conversation'
 
 export default function useMessage ({ currentConversation = null } = {}) {
   const { userFound } = UserLogged()
@@ -15,13 +16,13 @@ export default function useMessage ({ currentConversation = null } = {}) {
   const socket = useRef()
 
   useEffect(() => {
-    userFound ? axios.get('https://ourspace-api-hw4y.onrender.com/conversations/owner', { withCredentials: true }).then(({ data }) => setConversations(data)) : null
+    userFound ? getOwnConversation().then(({ data }) => setConversations(data)) : null
   }, [userFound])
 
   useEffect(() => {
     setMessages([])
     setLoading(true)
-    currentConversation?.Conversation_ID ? axios.get(`https://ourspace-api-hw4y.onrender.com/messages/find/${currentConversation?.Conversation_ID}`, { withCredentials: true }).then(({ data }) => { setMessages(data) }).finally(setTimeout(() => { setLoading(false) }, 600)) : null
+    currentConversation?.Conversation_ID ? getMessageByConversation(currentConversation?.Conversation_ID).then(({ data }) => { setMessages(data) }).finally(setTimeout(() => { setLoading(false) }, 600)) : null
   }, [currentConversation?.Conversation_ID])
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export default function useMessage ({ currentConversation = null } = {}) {
     }
 
     try {
-      const res = await axios.post('https://ourspace-api-hw4y.onrender.com/messages/add', message, { withCredentials: true })
+      const res = await sendMessages({ message })
       let messageWithUserInfo = {}
       messageWithUserInfo = res.data
       messageWithUserInfo.userModel = { img: userFound?.img }

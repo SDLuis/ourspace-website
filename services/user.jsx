@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 const API_URL = 'https://ourspace-api-hw4y.onrender.com'
 
 export const getUser = async () => {
-  return await axios
+  return axios
     .get(
       `${API_URL}/users`)
     .then((res) => {
@@ -18,7 +18,7 @@ export const getUser = async () => {
 }
 
 export const findUser = async (user) => {
-  return await axios
+  return axios
     .get(
       `${API_URL}/users/find/${user}`)
     .then((res) => {
@@ -29,8 +29,20 @@ export const findUser = async (user) => {
     })
 }
 
+export const findUserById = async (UserID) => {
+  return axios
+    .get(
+      `${API_URL}/users/${UserID}`)
+    .then((res) => {
+      return res
+    })
+    .catch((err) => {
+      toast.error(`${err}`)
+    })
+}
+
 export const findUsers = async (user) => {
-  return await axios
+  return axios
     .get(
       `${API_URL}/users/search/${user}`)
     .then((res) => {
@@ -42,7 +54,7 @@ export const findUsers = async (user) => {
 }
 
 export const editUser = async (body, id) => {
-  return await axios
+  return axios
     .put(
       `${API_URL}/users/edit/${id}`, body, { withCredentials: true })
     .then((res) => {
@@ -54,7 +66,7 @@ export const editUser = async (body, id) => {
 }
 
 export const editCoverUser = async (body, id) => {
-  return await axios
+  return axios
     .put(
       `${API_URL}/users/cover/${id}`, body, { withCredentials: true })
     .then((res) => {

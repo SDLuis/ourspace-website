@@ -2,9 +2,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import axios from 'axios'
+import { getCountries } from '../services/country'
 import { toast } from 'react-hot-toast'
 import UseUser from './useLogin'
+import { addPost } from '../services/posts'
 
 export default function UseAddPost () {
   const { userLogged } = UseUser()
@@ -20,7 +21,7 @@ export default function UseAddPost () {
   useEffect(() => {
     userLogged().then(data => setUser(data))
     country && country.trim() !== 'anonimo'
-      ? axios.get(`https://country-api-cq2y.onrender.com/country/${country.trim()}`).then(({ data }) => { setCities(data) })
+      ? getCountries(country.trim()).then(({ data }) => { setCities(data) })
       : null
   }, [country, disabled])
 
@@ -45,7 +46,7 @@ export default function UseAddPost () {
       body.append('Location', Location())
       body.append('description', description.current.value)
       body.append('image', postImg)
-      return await axios.post('https://ourspace-api-hw4y.onrender.com/posts/add', body, { withCredentials: true })
+      return addPost(body)
         .then(() => {
           toast.success('Se ha añadido tu post!')
           window.location.href = '/'

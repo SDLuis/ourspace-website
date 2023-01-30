@@ -1,8 +1,8 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-unused-expressions */
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import UserLogged from './userLogged'
+import { addReaction, removeReaction, findReactionByPostId } from '../services/reaction'
 
 export default function Reaction (postID) {
   let ID
@@ -22,7 +22,7 @@ export default function Reaction (postID) {
 
   useEffect(() => {
     setLiked(UserLiked)
-    postID ? axios.get(`https://ourspace-api-hw4y.onrender.com/reactions/find/${postID}`).then((res) => { setReactions(res.data) }) : null
+    postID ? findReactionByPostId(postID).then(({ data }) => { setReactions(data) }) : null
   }, [postID, UserLiked])
 
   const AddReaction = (PostID) => {
@@ -34,11 +34,11 @@ export default function Reaction (postID) {
           User_ID: userFound.User_ID
         }
         setLiked(true)
-        axios.post('https://ourspace-api-hw4y.onrender.com/reactions/add', body, { withCredentials: true }).then(() => {
+        addReaction(body).then(() => {
           setReactions([...reactions, { ...body }])
         })
       } else {
-        axios.delete(`https://ourspace-api-hw4y.onrender.com/reactions/delete/${ID}`, { withCredentials: true }).then(() => {
+        removeReaction(ID).then(() => {
           const newReactionsObject = reactions.filter((reaction) => reaction.Reaction_ID !== reactions[0].Reaction_ID)
           setReactions(newReactionsObject)
         })

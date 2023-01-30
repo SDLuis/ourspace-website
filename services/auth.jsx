@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 const API_URL = 'https://ourspace-api-hw4y.onrender.com'
 
 export const Login = async (user, password) => {
-  return await axios
+  return axios
     .post(
       `${API_URL}/auth/login`,
       {
@@ -24,7 +24,7 @@ export const Login = async (user, password) => {
 }
 
 export const register = async (body) => {
-  return await axios
+  return axios
     .post(`${API_URL}/auth/register`, body)
     .then((response) => {
       return response.data

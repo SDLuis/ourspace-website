@@ -1,8 +1,8 @@
 'use client'
 /* eslint-disable no-unused-expressions */
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import UserLogged from './userLogged'
+import { findUserById } from '../services/user'
 
 export default function Conversation ({ conversation = null } = {}) {
   const [friend, setFriend] = useState(null)
@@ -12,7 +12,7 @@ export default function Conversation ({ conversation = null } = {}) {
   useEffect(() => {
     const friendId = userFound ? conversation?.members?.find((m) => m !== userFound?.User_ID) : null
     friendId
-      ? axios.get(`https://ourspace-api-hw4y.onrender.com/users/${friendId}`).then(({ data }) => setFriend(data))
+      ? findUserById(friendId).then(({ data }) => setFriend(data))
       : null
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userFound])
