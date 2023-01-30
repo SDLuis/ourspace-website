@@ -1,6 +1,6 @@
 'use client'
 import { useRef } from 'react'
-import axios from 'axios'
+import { addComent } from '../services/comment'
 import { toast } from 'react-hot-toast'
 import UserLogged from './userLogged'
 
@@ -13,7 +13,7 @@ export default function UseAddComment ({ PostID }) {
         Post_ID: PostID,
         description: comment.current.value
       }
-      axios.post('https://ourspace-api-hw4y.onrender.com/comments/add', body, { withCredentials: true })
+      addComent(body)
         .then(() => {
           toast.success('Se ha añadido tu comentario!')
           window.location.href = `/post/${PostID}/comments`
