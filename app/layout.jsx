@@ -5,7 +5,7 @@ export default function MainLayout ({ children }) {
   return (
     <html lang='en'>
       <head />
-      <body>
+      <body className='bg-white dark:bg-black'>
         <AuthProvider>
           <Navbar />
           {children}

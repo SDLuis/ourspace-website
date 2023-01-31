@@ -13,7 +13,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
     if (userModel.User_ID === userLogged?.User_ID) { return false } else { return true }
   }
   return posts.map((post) => (
-    <div className='flex gap-3 w-full relative border-t border-gray-700 py-4 p-4 mb-1 ' key={post.Post_ID}>
+    <div className='flex gap-3 w-full relative border-t border-gray-700 pt-4 pb-5 p-4 hover:bg-[#f7f7f7] transition-all ease-in-out duration-150 dark:hover:bg-[#080808]' key={post.Post_ID}>
       <div className='w-12 h-12 sm:w-14 sm:h-14'><UserImg post={post} /></div>
       <div className='flex-[2]'>
         <UserOnPost post={post}>

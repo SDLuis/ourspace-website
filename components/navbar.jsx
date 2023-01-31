@@ -13,9 +13,9 @@ export default function Navbar () {
   const { userFound, logout } = UserLogged()
   const [userMenu, setUserMenu] = useState(false)
   return (
-    <div className='px-4 w-full md:px-[13%] py-2 flex justify-between border-b border-solid border-gray-700 '>
+    <div className='px-4 w-full md:px-[13%] py-2 bg-white dark:bg-black flex justify-between border-b border-solid border-gray-700 '>
       <div className='flex items-center'>
-        <p className='text-4xl font-semibold py-2 sm:py-0 text-gray-100'><Link href='/home'>Ourspace</Link></p>
+        <p className='text-4xl font-semibold py-2 sm:py-0 text-black dark:text-gray-100'><Link href='/home'>Ourspace</Link></p>
       </div>
       <div className='flex items-center gap-6'>
         <div className='hidden sm:flex items-center gap-6'>
