@@ -7,8 +7,8 @@ export default function Suggeration () {
   const { othersUsers, loading } = UseUsers()
   return (
     <div className='w-[95%] flex flex-col h-screen items-center justify-start rounded-md'>
-      <div className='p-3 xl:px-4 xl:py-4 bg-[#17181c] w-full rounded-md flex flex-col gap-4'>
-        <p className='text-xl font-bold text-[#f2f2f2]'>Nuevos usuarios</p>
+      <div className='p-3 xl:px-4 xl:py-4 bg-[#f7f9f8] dark:bg-[#17181c] w-full rounded-md flex flex-col gap-4'>
+        <p className='text-xl font-bold dark:text-[#f2f2f2] text-black'>Nuevos usuarios</p>
         {loading
           ? <div className='w-full h-full flex justify-center items-center'><div className='w-20'><Loading /></div> </div>
           : othersUsers?.map((user) => (

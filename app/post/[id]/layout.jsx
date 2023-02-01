@@ -17,11 +17,11 @@ export default async function Post ({ params, children }) {
   const post = await (await findPost())
 
   return (
-    <main className='w-full min-h-screen flex justify-center text-white'>
+    <main className='w-full min-h-screen flex justify-center dark:text-[#f2f2f2] text-[#121212]'>
       <div className='w-full sm:w-[598px] md:w-[470px] lg:w-[598px] sm:border-x border-solid sm:border-gray-700'>
         <div className='w-full flex flex-col px-4'>
           <div className='flex -ml-1.5 -mt-2 items-center h-8 gap-6 py-7 sm:py-9'>
-            <Link className='p-1 hover:bg-gray-900 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
+            <Link className='p-1 dark:hover:bg-gray-900 hover:bg-gray-200 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
             <p className='text-2xl font-semibold -mt-1.5'>Post</p>
           </div>
           <div className='w-full flex flex-col'>
@@ -30,9 +30,9 @@ export default async function Post ({ params, children }) {
               <div className='flex flex-col'>
                 <div className='h-14 sm:h-16'>
                   <Link className='' href={`/user/${post.userModel.user}`}>
-                    <p className='font-medium text-lg text-gray-200'>{post.userModel.First_Name + ' ' + post.userModel.Last_Name}</p>
+                    <p className='font-medium text-lg text-[#121212] dark:text-gray-200'>{post.userModel.First_Name + ' ' + post.userModel.Last_Name}</p>
                   </Link>
-                  <p className='text-base text-gray-400'>{post.Location}</p>
+                  <p className='text-base dark:text-gray-400 text-gray-500'>{post.Location}</p>
                 </div>
               </div>
             </div>

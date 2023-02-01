@@ -12,7 +12,7 @@ export default function LikeButtonComponent ({ post }) {
         <Like like={liked} />
       </button>
       {
-         post.reactionModels ? reactions.length > 1 || reactions.length === 0 ? <p>{reactions.length} reacciones</p> : <p>{reactions.length} reacción</p> : <p>Sin reacciones</p>
+         post.reactionModels ? reactions.length > 1 || reactions.length === 0 ? <p className='text-black dark:text-[#f2f2f2]'>{reactions.length} reacciones</p> : <p className='text-black dark:text-[#f2f2f2]'>{reactions.length} reacción</p> : <p className='text-black dark:text-[#f2f2f2]'>Sin reacciones</p>
       }
     </div>
 

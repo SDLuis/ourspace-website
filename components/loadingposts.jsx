@@ -2,7 +2,7 @@ import ContentLoader from 'react-content-loader'
 
 const InstagramStyle = props => (
   <div className='sm:px-8 px-0'>
-    <main className='min-h-screen w-full flex justify-center'>
+    <main className='min-h-screen bg-white dark:bg-black w-full flex justify-center'>
       <div className='w-full sm:w-[598px] md:w-[470px] lg:w-[598px] py-5 flex flex-col items-center sm:border-x sm:border-solid sm:border-gray-700'>
         <ContentLoader
           className='w-[90%] sm:w-[440px] xl:w-[430px]' backgroundColor='#333'

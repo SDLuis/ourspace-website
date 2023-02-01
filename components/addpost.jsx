@@ -28,7 +28,7 @@ export default function Addpost ({ countries = [] }) {
             <LocationInputs countries={countries} country={country} setcountry={setcountry} Cities={Cities} city={city} />
           </div>
           <TextareaAutosize
-            className='w-full min-h-[80px] rounded-md p-2 max-h-[25rem] outline-none border-none leading-6 text-gray-200 text-base sm:text-lg bg-transparent resize-none'
+            className='w-full min-h-[80px] rounded-md p-2 max-h-[25rem] outline-none border-none leading-6 text-[#121212] dark:text-gray-200 text-base sm:text-lg bg-transparent dark:placeholder:text-gray-300 placeholder:text-gray-500 resize-none'
             ref={description} placeholder='¿Qué estás pensando?'
           />
           {postImg.length !== 0

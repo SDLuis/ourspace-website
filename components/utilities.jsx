@@ -29,8 +29,8 @@ export default function Utilities () {
                     <div className='flex justify-between flex-1'>
                       <div className='py-1 h-14 sm:h-16'>
                         <Link href={`/user/${userFound.user}`}>
-                          <p className='font-medium text-lg'>{userFound.First_Name + ' ' + userFound.Last_Name}</p>
-                          <p className='text-sm opacity-60'>@{userFound.user}</p>
+                          <p className='font-medium text-lg text-black dark:text-white'>{userFound.First_Name + ' ' + userFound.Last_Name}</p>
+                          <p className='text-sm opacity-60 text-black dark:text-white'>@{userFound.user}</p>
                         </Link>
                       </div>
                       <div className='py-3'>
@@ -43,10 +43,10 @@ export default function Utilities () {
                   <div className='border-t border-t-gray-700' />
                   <div className='p-3'>
                     <div className='flex items-center'>
-                      <Location /> <p className='text-gray-200 p-3'>{userFound.Location ? userFound.Location : 'anonimo'}</p>
+                      <Location /> <p className='text-black dark:text-gray-200 p-3'>{userFound.Location ? userFound.Location : 'anonimo'}</p>
                     </div>
                     <div className='flex items-center'>
-                      <BirthDay /> <p className='text-gray-200 p-3'>{userFound.Date_Of_Birth ? userFound.Date_Of_Birth : '-- : -- : ----'}</p>
+                      <BirthDay /> <p className='text-black dark:text-gray-200 p-3'>{userFound.Date_Of_Birth ? userFound.Date_Of_Birth : '-- : -- : ----'}</p>
                     </div>
                   </div>
                   <div className='border-t border-t-gray-700' />

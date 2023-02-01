@@ -18,7 +18,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
       <div className='flex-[2]'>
         <UserOnPost post={post}>
           <Link href={`/post/${post.Post_ID}`}>
-            <h2>{post.description}</h2>
+            <h2 className='text-black dark:text-[#f2f2f2]'>{post.description}</h2>
           </Link>
         </UserOnPost>
         <Link href={`/post/${post.Post_ID}`}>
@@ -34,7 +34,7 @@ export default function Posts ({ posts, userLogged = '', removePost = null }) {
           <div className='pt-3 flex flex-col gap-3'>
             <Comment PostID={post.Post_ID} />
             {
-            post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p>Mostrar comentarios</p> </Link> : <p>Sin comentarios aún</p>
+            post.commentModels.length > 0 ? <Link href={`post/${post.Post_ID}/comments`}> <p className='text-black dark:text-[#f2f2f2]'>Mostrar comentarios</p> </Link> : <p className='text-black dark:text-[#f2f2f2]'>Sin comentarios aún</p>
           }
           </div>
         </div>

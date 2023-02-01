@@ -6,7 +6,7 @@ export default function LocationInputs ({ countries = [], setcountry, city, coun
   return (
     <div className='flex flex-col gap-0.5 -mt-2'>
       <p className='text-sm text-sky-600 px-3'>Donde estas?</p>
-      <select onChange={(e) => setcountry(e.target.value)} className='bg-black cursor-pointer border w-32 md:w-48 border-sky-900 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5 mb-2'>
+      <select onChange={(e) => setcountry(e.target.value)} className='dark:bg-black bg-white cursor-pointer border w-32 md:w-48 border-sky-900 text-sky-600 text-sm rounded-l-full rounded-r-full outline-none p-1.5 mb-2'>
         <option value=''>Anonimo</option>
         {countries.length && countries.map((name) => (<option value={name} key={name}> {name}</option>))}
       </select>

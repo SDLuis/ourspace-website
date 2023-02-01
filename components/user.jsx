@@ -27,8 +27,8 @@ export default function User ({ foundUser, foundPosts }) {
       <div className='flex flex-col w-full sm:w-[598px] items-center sm:border-x min-h-screen border-solid border-gray-700 pb-6'>
         <div className='flex justify-start w-full'>
           <div className='flex items-center h-8 gap-6 px-2.5 py-7 sm:py-9'>
-            <Link className='p-2 hover:bg-gray-900 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
-            <p className='text-2xl font-semibold -mt-1'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
+            <Link className='p-2 dark:hover:bg-gray-900 hover:bg-gray-200 transition-all ease-in-out rounded-full duration-300' href='/home'><Back /></Link>
+            <p className='text-2xl font-semibold -mt-1 text-[#121212] dark:text-[#f2f2f2]'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
           </div>
         </div>
         <div className='relative flex justify-center w-full sm:w-[598px] h-[60%] sm:h-[280px]'>
@@ -41,11 +41,11 @@ export default function User ({ foundUser, foundPosts }) {
           </div>
         </div>
         <div className='mt-[68px] sm:mt-[84px]'>
-          <p className='text-center text-gray-200 font-medium text-xl'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
+          <p className='text-center dark:text-gray-200 text-[#121212] font-medium text-xl'>{`${foundUser.First_Name} ${foundUser.Last_Name}`}</p>
         </div>
         <div className='w-full my-5 border-t border-solid border-gray-700'>
-          <button className={`px-4 py-3 border-b-2 ${page === 'posts' ? 'border-sky-900' : 'border-b-transparent'}`} onClick={() => setPage('posts')}>Publicaciones</button>
-          <button className={`px-4 py-3 border-b-2 ${page === 'info' ? 'border-sky-900' : 'border-b-transparent'}`} onClick={() => setPage('info')}>Información</button>
+          <button className={`px-4 py-3 border-b-2 text-[#121212] dark:text-[#f2f2f2] ${page === 'posts' ? 'dark:border-sky-900 border-sky-600' : 'border-b-transparent'}`} onClick={() => setPage('posts')}>Publicaciones</button>
+          <button className={`px-4 py-3 border-b-2 text-[#121212] dark:text-[#f2f2f2] ${page === 'info' ? 'dark:border-sky-900 border-sky-600' : 'border-b-transparent'}`} onClick={() => setPage('info')}>Información</button>
         </div>
         {
           page === 'posts'

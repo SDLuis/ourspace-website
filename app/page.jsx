@@ -23,9 +23,6 @@ export default function Home () {
         </main>
       </div>
       <AuthBanner />
-      <footer className='flex w-full py-8 justify-center items-center border-t border-gray-700'>
-        <p>Luis is working yet</p>
-      </footer>
     </div>
   )
 }
