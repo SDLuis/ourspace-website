@@ -25,7 +25,7 @@ export default function Message ({ currentConversation = null }) {
       }
       </div>
       <div className={` ${!currentConversation?.Conversation_ID ? 'hidden' : ''} absolute flex gap-2 bottom-2 w-full left-0 right-0 px-2`}>
-        <TextareaAutosize ref={description} className='w-full min-h-[90px] max-h-[90px] rounded-r-md outline-none rounded-l-md px-2 py-1 font-medium resize-none' />
+        <TextareaAutosize ref={description} className='w-full bg-gray-200 dark:bg-gray-800 text-black dark:text-white min-h-[90px] max-h-[90px] rounded-r-md outline-none rounded-l-md px-2 py-1 font-medium resize-none' />
         <button onClick={() => sendMessage()}><Send /></button>
       </div>
     </div>
