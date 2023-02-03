@@ -12,10 +12,10 @@ export default function ListOfConversations () {
   const { conversations } = useMessage()
 
   return (
-    <div className='grid h-[90vh] place-items-center'>
-      <div className='w-[80vw] h-[80vh] rounded-md p-4 bg-[#121212] flex gap-5 '>
+    <div className='grid h-[calc(100vh-40px)] place-items-center'>
+      <div className='w-[80vw] h-[80vh] rounded-md p-4 bg-gray-300 dark:bg-[#121212] flex gap-5 '>
         <div className='flex min-w-[15rem] flex-col gap-3'>
-          <div className='h-16 w-60 rounded-lg bg-black/10 p-3 cursor-pointer flex items-center justify-center border border-solid border-gray-700'>
+          <div className='h-16 w-60 rounded-lg bg-black/10 p-3 cursor-pointer flex items-center justify-center border border-solid dark:border-gray-700 border-gray-100'>
             <AddConversation />
           </div>
           {conversations?.map((conversation) => (

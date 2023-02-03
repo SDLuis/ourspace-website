@@ -1,7 +1,9 @@
-import LoadingAddPosts from '../../../components/loadingaddpost'
+import LoadingSpinner from '../../../components/loading'
 
 export default function Loading () {
   return (
-    <LoadingAddPosts />
+    <div className='h-screen bg-white dark:bg-black'>
+      <LoadingSpinner />
+    </div>
   )
 }
