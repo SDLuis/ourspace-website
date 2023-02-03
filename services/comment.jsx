@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://ourspace-api-hw4y.onrender.com'
+const API_URL = 'https://ourspace-api.up.railway.app'
 
 export const addComent = async (comment) => {
   return axios

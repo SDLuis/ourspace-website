@@ -2,7 +2,7 @@ import User from '../../../components/user'
 
 export default async function UserPage ({ params }) {
   const { user } = params
-  const host = 'https://ourspace-api-hw4y.onrender.com'
+  const host = 'https://ourspace-api.up.railway.app'
 
   async function findUser () {
     return await fetch(`${host}/users/find/${user}`).then(res => res.json())

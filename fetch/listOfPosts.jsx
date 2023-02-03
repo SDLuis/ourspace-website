@@ -1,5 +1,5 @@
 import ListOfPosts from '../components/listOfPost'
-const host = 'https://ourspace-api-hw4y.onrender.com'
+const host = 'https://ourspace-api.up.railway.app'
 
 const fetchPosts = () => {
   return fetch(`${host}/posts`, { cache: 'no-store' }).then(res => res.json())

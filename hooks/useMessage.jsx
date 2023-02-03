@@ -30,7 +30,7 @@ export default function useMessage ({ currentConversation = null } = {}) {
   }, [messages])
 
   useEffect(() => {
-    socket.current = io('https://ourspace-api-hw4y.onrender.com')
+    socket.current = io('https://ourspace-api.up.railway.app')
     userFound ? socket.current.emit('addUser', userFound?.User_ID) : null
     socket.current.on('getMessage', (data) => {
       setArrivalMessage({

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://country-api-cq2y.onrender.com'
+const API_URL = 'https://country-api.up.railway.app'
 
 export const getCountries = async (country) => {
   return axios

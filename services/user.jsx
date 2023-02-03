@@ -3,7 +3,7 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
-const API_URL = 'https://ourspace-api-hw4y.onrender.com'
+const API_URL = 'https://ourspace-api.up.railway.app'
 
 export const getUser = async () => {
   return axios

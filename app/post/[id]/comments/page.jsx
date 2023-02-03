@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default async function Post ({ params }) {
   const { id } = params
-  const host = 'https://ourspace-api-hw4y.onrender.com'
+  const host = 'https://ourspace-api.up.railway.app'
 
   async function fetchComments () {
     return fetch(`${host}/comments/find/${id}`, { next: { revalidate: 10 } }).then(res => res.json())
