@@ -5,6 +5,7 @@ import { useCallback, useState, useEffect } from 'react'
 import { editUser } from '../services/user'
 import UserLogged from './userLogged'
 import { toast } from 'react-hot-toast'
+
 export default function EditUser ({ user, city, setcountry, country } = {}) {
   const { userFound } = UserLogged()
   const [disabled, setDisabled] = useState(false)

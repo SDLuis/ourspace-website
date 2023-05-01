@@ -18,6 +18,7 @@ export default function UseAddPost () {
   const [country, setcountry] = useState('')
   const [Cities, setCities] = useState([])
   const [disabled, setDisabled] = useState(false)
+
   useEffect(() => {
     userLogged().then(data => setUser(data))
     country && country.trim() !== 'anonimo'
@@ -46,6 +47,7 @@ export default function UseAddPost () {
       body.append('Location', Location())
       body.append('description', description.current.value)
       body.append('image', postImg)
+
       return addPost(body)
         .then(() => {
           toast.success('Se ha añadido tu post!')

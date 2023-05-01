@@ -7,6 +7,7 @@ import UserLogged from './userLogged'
 export default function UseAddComment ({ PostID }) {
   const { userFound } = UserLogged()
   const comment = useRef('')
+
   function AddComment () {
     if (userFound) {
       const body = {
